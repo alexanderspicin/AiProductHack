@@ -1,0 +1,55 @@
+name: rula-pipecat
+
+# Default stack: CPU-only, builds and runs on linux/amd64 and on Apple Silicon
+# without changes. For an NVIDIA GPU, add the override file:
+#
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: cpu
+    image: rula-pipecat-backend:cpu
+    env_file:
+      # API keys (OPENAI_API_KEY / INWORLD_API_KEY / INWORLD_VOICE_ID). Optional
+      # so `docker compose config` still works on a fresh clone with no .env.
+      - path: .env
+        required: false
+    environment:
+      # Pinned here rather than taken from .env on purpose: the repo's .env is
+      # written for the host machine (WHISPER_DEVICE=cuda), which is wrong for a
+      # CPU container and fatal on a Mac. GPU users get the right values from
+      # docker-compose.gpu.yml. `environment` wins over `env_file`.
+      WHISPER_DEVICE: cpu
+      # float16 is a GPU-only compute type in ctranslate2.
+      WHISPER_COMPUTE_TYPE: int8
+      # "medium" on CPU transcribes slower than real time on most laptops.
+      # Deliberately NOT ${WHISPER_MODEL:-...}: compose substitutes from the same
+      # .env the host uses, so that spelling would silently inherit the host's
+      # GPU-sized model. Override with WHISPER_MODEL_OVERRIDE=base docker compose up.
+      WHISPER_MODEL: ${WHISPER_MODEL_OVERRIDE:-small}
+    ports:
+      - "${BACKEND_PORT:-7860}:7860"
+    volumes:
+      # Whisper + Smart Turn v3 weights, downloaded on first use.
+      - model-cache:/models
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Baked in at build time (Vite inlines it), so changing this needs a
+        # rebuild, not just a restart.
+        VITE_PIPECAT_BASE_URL: ${VITE_PIPECAT_BASE_URL:-http://localhost:${BACKEND_PORT:-7860}}
+    image: rula-pipecat-frontend:latest
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  model-cache:

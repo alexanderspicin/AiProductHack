@@ -1,0 +1,17 @@
+.git/
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.idea/
+
+# Secrets are injected at runtime (compose env_file), never baked into a layer.
+.env
+backend/.env
+
+frontend/node_modules/
+frontend/dist/
+
+docker-compose*.yml
+README.md

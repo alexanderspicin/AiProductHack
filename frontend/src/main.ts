@@ -18,6 +18,37 @@ import { isAvatarEvent } from "./protocol/avatarProtocol";
 
 const BASE_URL = (import.meta as any).env?.VITE_PIPECAT_BASE_URL || "http://localhost:7860";
 
+/** WebSocket URL to connect to, given whatever `/start` returned.
+ *
+ * Pipecat's runner builds `wsUrl` from its own `--host` value (see
+ * `pipecat/runner/run.py`), which is fine when it runs on the developer's
+ * machine as `localhost` but wrong inside a container: it has to bind 0.0.0.0
+ * to be reachable at all, and the runner then hands the browser
+ * `wss://0.0.0.0:7860/...` -- an address browsers won't dial, tagged with a TLS
+ * scheme there is no TLS for. When that happens, rebuild the URL from the
+ * backend base URL we were configured with, keeping the path the runner chose.
+ */
+function resolveWsUrl(returned: string | undefined): string {
+  const fallbackPath = "/ws-client";
+  if (returned) {
+    try {
+      const url = new URL(returned);
+      if (url.hostname !== "0.0.0.0" && url.hostname !== "::") return returned;
+      return wsUrlFromBase(url.pathname);
+    } catch {
+      // Not a parsable URL -- fall through to deriving one.
+    }
+  }
+  return wsUrlFromBase(fallbackPath);
+}
+
+function wsUrlFromBase(path: string): string {
+  const url = new URL(BASE_URL);
+  url.protocol = url.protocol === "https:" ? "wss:" : "ws:";
+  url.pathname = path;
+  return url.toString();
+}
+
 const canvas = document.getElementById("scene") as HTMLCanvasElement;
 const connectBtn = document.getElementById("connect-btn") as HTMLButtonElement;
 const disconnectBtn = document.getElementById("disconnect-btn") as HTMLButtonElement;
@@ -127,7 +158,8 @@ async function connect() {
       endpoint: `${BASE_URL}/start`,
       requestData: { transport: "websocket" },
     });
-    const wsUrl = (startResult as { wsUrl: string }).wsUrl;
+    const wsUrl = resolveWsUrl((startResult as { wsUrl?: string }).wsUrl);
+    log(`Connecting to ${wsUrl}`);
     await client.connect({ wsUrl });
   } catch (err) {
     console.error("Failed to connect", err);

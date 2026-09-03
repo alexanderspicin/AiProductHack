@@ -1,0 +1,24 @@
+# NVIDIA GPU override -- linux/amd64 only (there is no CUDA on Apple Silicon).
+# Requires the NVIDIA Container Toolkit on the host.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
+#
+# If your Compose is older than v2.30 and rejects `gpus:`, swap it for:
+#   deploy:
+#     resources:
+#       reservations:
+#         devices:
+#           - driver: nvidia
+#             count: all
+#             capabilities: [gpu]
+
+services:
+  backend:
+    build:
+      target: cuda
+    image: rula-pipecat-backend:cuda
+    gpus: all
+    environment:
+      WHISPER_DEVICE: cuda
+      WHISPER_COMPUTE_TYPE: float16
+      WHISPER_MODEL: ${WHISPER_MODEL_OVERRIDE:-medium}

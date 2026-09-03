@@ -84,6 +84,63 @@ is a free desktop app for anime-style characters but only exports the smaller VR
 Without a matching `.glb` in place, the scene still runs (voice pipeline works), just with no visible
 avatar mesh.
 
+## Docker
+
+```
+cp .env.example .env     # fill in OPENAI_API_KEY / INWORLD_API_KEY
+docker compose up --build
+```
+
+Then open http://localhost:5173. Backend is on http://localhost:7860.
+
+Runs as-is on **linux/amd64 and on Apple Silicon** — the CPU image pulls only
+prebuilt manylinux wheels (`ctranslate2`, `onnxruntime`, `av`), all of which
+publish `aarch64` builds, and there is no torch and no compiler in the image.
+To publish a multi-arch image from one machine:
+
+```
+docker buildx build --platform linux/amd64,linux/arm64 \
+  -f backend/Dockerfile --target cpu -t <registry>/rula-backend:latest --push .
+```
+
+### GPU
+
+```
+docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
+```
+
+amd64 only (CUDA 12.6 + cuDNN base image), needs the NVIDIA Container Toolkit on
+the host. It switches Whisper to `cuda`/`float16`/`medium`.
+
+### Things worth knowing
+
+- **`WHISPER_DEVICE` and `WHISPER_COMPUTE_TYPE` from `.env` are ignored in
+  Docker** — compose pins them per target (`environment` overrides `env_file`).
+  The repo's `.env` is written for the host machine (`cuda`/`float16`), which is
+  wrong in a CPU container and fatal on a Mac. API keys still come from `.env`.
+- The CPU stack defaults to `WHISPER_MODEL=small`; `medium` is slower than real
+  time on most laptop CPUs. Override with
+  `WHISPER_MODEL_OVERRIDE=base docker compose up` — a distinct variable name on
+  purpose, since compose substitutes `${WHISPER_MODEL}` from the very `.env`
+  whose host-tuned value we're trying not to inherit.
+- `docker compose config` prints resolved values, API keys included. Redirect it
+  somewhere private, or use `--quiet` when you only want validation.
+- Model weights (Whisper, Smart Turn v3) download on first use into the
+  `model-cache` volume, so only the first start pays for it. `docker compose down
+  -v` throws them away.
+- The frontend bakes the backend URL in at build time (Vite inlines
+  `import.meta.env`), so changing `VITE_PIPECAT_BASE_URL` needs `--build`, not
+  just a restart.
+- Ports are overridable: `BACKEND_PORT`, `FRONTEND_PORT`.
+- The browser needs a secure context for microphone access. `http://localhost`
+  counts as one; reaching the container from *another* machine by IP does not —
+  that needs TLS in front.
+- Pipecat's runner builds the client's WebSocket URL from its own `--host`,
+  which inside a container has to be `0.0.0.0` — an address the browser can't
+  dial. `resolveWsUrl()` in `frontend/src/main.ts` detects that and rebuilds the
+  URL from `VITE_PIPECAT_BASE_URL`; without it the containerised backend would
+  hand out `wss://0.0.0.0:7860/ws-client`.
+
 ## Tests
 
 ```
