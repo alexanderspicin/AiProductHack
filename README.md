@@ -1,4 +1,4 @@
-# rula-pipecat
+# AiProductHack — локальный голосовой ассистент с 3D-аватаром
 
 A local voice + 3D avatar assistant, inspired by [ykshv/rula](https://github.com/ykshv/rula), built on
 [Pipecat](https://pipecat.ai) with local (on-device) turn detection.
