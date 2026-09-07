@@ -1,0 +1,20 @@
+{
+  "status":"audit_complete",
+  "decision":"reject_claim_of_no_gender_mixing",
+  "initial_lines_checked":6,
+  "initial_gender_mismatches":1,
+  "initial_failure":{"profile":"anam_tatiana","scenario":"feedback","actual":"Я его уже отправил.","expected":"Я его уже отправила."},
+  "real_text_api_requests":12,
+  "request_errors":0,
+  "generated_responses_checked":12,
+  "generated_self_gender_mismatches":0,
+  "generated_neutral_or_inconclusive_responses":0,
+  "wrong_history_recovery":{"passed":4,"total":4},
+  "third_person_gender_preservation":{"passed":4,"total":4},
+  "evaluation":"Assistant linguistic inspection of saved text; not external human evaluation or an exhaustive NLP guarantee",
+  "voice_video_calls":0,
+  "runtime_settings_or_sessions_changed":false,
+  "product_source_changed":false,
+  "other_findings":["One generated voice-instruction answer ended with extraneous non-Russian characters; preserved in raw results and not counted as a gender error"],
+  "limits":["One generation per case", "Voice instruction tested without audio transport or tool execution", "No universal guarantee for unrestricted LLM output", "Old saved dialogue lines are not rewritten"]
+}

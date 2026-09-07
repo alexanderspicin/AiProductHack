@@ -1,0 +1,130 @@
+{
+  "kind": "synthetic_audio_only",
+  "microphone_captured": false,
+  "avatar_calls": 0,
+  "events": [
+    {
+      "kind": "avatar_start",
+      "epoch": 0,
+      "at_ms": 3401
+    },
+    {
+      "kind": "avatar_end",
+      "epoch": 0,
+      "at_ms": 4324
+    },
+    {
+      "kind": "user-started-speaking",
+      "at_ms": 4516
+    },
+    {
+      "kind": "avatar_interrupt",
+      "epoch": 1,
+      "at_ms": 4516
+    },
+    {
+      "kind": "user-transcription",
+      "at_ms": 5826,
+      "text": " Добрый день! "
+    },
+    {
+      "kind": "user-transcription",
+      "at_ms": 7942,
+      "text": " Понимаю ваши сомнения. "
+    },
+    {
+      "kind": "user-stopped-speaking",
+      "at_ms": 7942
+    },
+    {
+      "kind": "user-started-speaking",
+      "at_ms": 7951
+    },
+    {
+      "kind": "avatar_interrupt",
+      "epoch": 2,
+      "at_ms": 7951
+    },
+    {
+      "kind": "user-transcription",
+      "at_ms": 11153,
+      "text": " Неспокойно разберёмся, что именно вас беспокоит. "
+    },
+    {
+      "kind": "user-stopped-speaking",
+      "at_ms": 11153
+    },
+    {
+      "kind": "user-started-speaking",
+      "at_ms": 11158
+    },
+    {
+      "kind": "avatar_interrupt",
+      "epoch": 3,
+      "at_ms": 11158
+    },
+    {
+      "kind": "user-transcription",
+      "at_ms": 13137,
+      "text": " мы можем начать с небольшой группы. "
+    },
+    {
+      "kind": "user-stopped-speaking",
+      "at_ms": 13319
+    },
+    {
+      "kind": "avatar_start",
+      "epoch": 3,
+      "at_ms": 14474
+    },
+    {
+      "kind": "avatar_end",
+      "epoch": 3,
+      "at_ms": 15946
+    }
+  ],
+  "session_id": "60d270e6-5a8d-4a8f-ad92-0717a0b4bde4",
+  "input_start_ms": 3936,
+  "new_audio_at_ms": 14693,
+  "stop_status": 200,
+  "turns": [
+    {
+      "id": "67a40b46-7126-4c7e-9311-0a258f8b35ed",
+      "request_id": "67a40b46-7126-4c7e-9311-0a258f8b35ed",
+      "user_text": "Добрый день!",
+      "reply": "",
+      "interrupted": true,
+      "action": null,
+      "stage_index": 0,
+      "status": "committed",
+      "elapsed_ms": null,
+      "created_at": "2026-09-06T16:58:34.036905+00:00"
+    },
+    {
+      "id": "7b4e5be8-bf96-4e2b-9874-7d95932c0071",
+      "request_id": "7b4e5be8-bf96-4e2b-9874-7d95932c0071",
+      "user_text": "Понимаю ваши сомнения.",
+      "reply": "",
+      "interrupted": true,
+      "action": null,
+      "stage_index": 0,
+      "status": "committed",
+      "elapsed_ms": null,
+      "created_at": "2026-09-06T16:58:37.508905+00:00"
+    },
+    {
+      "id": "32661bd1-0719-4210-ac96-cb40b64529d3",
+      "request_id": "32661bd1-0719-4210-ac96-cb40b64529d3",
+      "user_text": "Неспокойно разберёмся, что именно вас беспокоит.   мы можем начать с небольшой группы.",
+      "reply": "Небольшая группа действительно может снизить риск, но пока",
+      "interrupted": true,
+      "action": null,
+      "stage_index": 0,
+      "status": "committed",
+      "elapsed_ms": null,
+      "created_at": "2026-09-06T16:58:39.688025+00:00"
+    }
+  ],
+  "input_to_user_started_ms": 580,
+  "start_before_transcript": true
+}

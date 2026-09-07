@@ -1,0 +1,27 @@
+[project]
+name = "rehearsal"
+version = "0.1.0"
+description = "Scenario-based dialogue trainer with optional local speech recognition and Inworld avatar voice"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.116,<1",
+  "httpx>=0.28,<1",
+  "pydantic>=2.11,<3",
+  "uvicorn[standard]>=0.35,<1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.4,<9", "pytest-asyncio>=1.1,<2"]
+
+[project.optional-dependencies]
+voice = [
+  "pipecat-ai[openai,inworld,cartesia,whisper,websocket,silero,runner]==1.8.1",
+  "mlx-whisper>=0.4.3,<0.5; sys_platform == 'darwin'",
+  "python-dotenv>=1.0",
+  "pydantic-settings>=2.4",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]
+testpaths = ["tests"]

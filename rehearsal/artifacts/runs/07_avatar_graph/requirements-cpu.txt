@@ -1,0 +1,5 @@
+numpy==2.5.2
+Pillow==12.3.0
+scipy==1.17.1
+onnxruntime==1.24.4
+kaldi-native-fbank==1.22.3

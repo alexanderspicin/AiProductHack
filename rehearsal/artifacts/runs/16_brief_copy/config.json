@@ -1,0 +1,1 @@
+{"task":"Participant-facing instruction copy","scope":"TrainingBrief only; stored scenarios unchanged","timebox_minutes":10,"checks":["exact requested sentence","custom text preserved","source unchanged","frontend build"],"api_calls":0}

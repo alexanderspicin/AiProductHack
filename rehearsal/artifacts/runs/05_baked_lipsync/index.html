@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Лаборатория речи · Rehearsal</title>
+<style>
+*{box-sizing:border-box}html{-webkit-font-smoothing:antialiased}body{margin:0;background:#f3f1ec;color:#252e29;font:16px/1.5 system-ui,sans-serif}main{max-width:1140px;margin:auto;padding:32px}header{margin-bottom:28px}h1{font-size:32px;line-height:1.2;margin:8px 0;text-wrap:balance}p{margin:8px 0 16px;text-wrap:pretty}.eyebrow{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#537460}.layout{display:grid;grid-template-columns:420px 1fr;gap:36px}.stage{height:570px;background:#18251e;position:relative;border-radius:18px;overflow:hidden;outline:1px solid #0000001a}.stage canvas,.stage iframe,.stage video{position:absolute;width:100%;height:100%;inset:0;object-fit:cover;border:0}.stage canvas{z-index:2}.badge{position:absolute;z-index:4;bottom:16px;left:16px;background:#18251ee8;color:white;border-radius:6px;padding:5px 10px;font-size:12px}label,legend{font-size:13px;font-weight:650}fieldset{border:0;padding:0;margin:0 0 20px}.modes{display:grid;gap:8px;margin-top:10px}.mode{min-height:50px;text-align:left;display:flex;gap:12px;padding:12px;background:#fff;border-radius:8px;box-shadow:0 0 0 1px #00000012;cursor:pointer}.mode:has(input:checked){background:#e5eee5;box-shadow:0 0 0 2px #56775e}.mode small{display:block;color:#69716b;font-weight:400}.mode input{accent-color:#315b40;width:18px;height:18px}select,textarea{display:block;width:100%;font:inherit;border:1px solid #c5cbc3;border-radius:8px;background:white;color:inherit;padding:12px;margin-top:8px}textarea{min-height:96px;resize:vertical}button{font:inherit;min-height:44px;padding:10px 18px;border:0;border-radius:8px;background:#2b553a;color:white;cursor:pointer;transition:scale .12s,background-color .12s}button:active{scale:.96}button:disabled{opacity:.5;cursor:wait}button.secondary{background:white;color:#553a32;box-shadow:0 0 0 1px #00000020}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #caa264;outline-offset:3px}.actions{display:flex;gap:10px;margin:16px 0}.status{min-height:52px;font-size:14px;font-variant-numeric:tabular-nums;color:#476051}.note{font-size:13px;color:#646d66}.footer{padding-top:20px;margin-top:24px;border-top:1px solid #d6dbd4;font-size:13px;color:#646d66}details{font-size:14px;margin-top:16px}summary{cursor:pointer;min-height:40px}.rating{display:flex;flex-wrap:wrap;gap:8px}.rating button{background:#e3e8e0;color:#354335;font-size:13px}a{color:#315b40}#review{margin-top:12px}#reviewMsg{font-size:13px;min-height:20px}.hidden,[hidden]{display:none!important}@media(max-width:800px){main{padding:20px}.layout{grid-template-columns:1fr;gap:24px}.stage{height:440px;max-width:440px;width:100%;margin:auto}h1{font-size:27px}.actions{flex-wrap:wrap}}@media(prefers-reduced-motion:reduce){button{transition:none}}
+</style>
+<main>
+<header><div class="eyebrow">Rehearsal / отдельный эксперимент</div><h1>Можно ли «запечь» живое лицо?</h1><p>Один голос. Три способа движения губ. Все вычисления на этом Mac, без платных API.</p></header>
+<div class="layout"><section aria-label="Экспериментальный персонаж">
+<div class="stage"><video id="idle" src="/data/vendor/emma/clips/idle.mp4" muted loop playsinline></video><canvas id="face" width="416" height="608"></canvas><iframe id="neural" src="dh.html" title="DH Live: локальная нейросетевая анимация" hidden></iframe><span class="badge" id="badge">Вымышленный AI-персонаж · 8 форм рта</span></div>
+<p class="note" id="caption">EMMA: заранее подготовленные изображения. Во время речи тело почти неподвижно. Это ограничение метода.</p>
+</section><section>
+<fieldset><legend>Способ анимации</legend><div class="modes">
+<label class="mode"><input type="radio" name="mode" value="energy"><span>1. Рот по громкости<small>Простой исходный вариант. Не различает звуки.</small></span></label>
+<label class="mode"><input type="radio" name="mode" value="model" checked><span>2. Формы рта по аудио<small>CPU-модель анализирует речь; выбираем готовые изображения.</small></span></label>
+<label class="mode"><input type="radio" name="mode" value="neural"><span>3. DH Live: дорисовка лица<small>Видео из примера авторов, маленькая модель в браузере и WebGL.</small></span></label>
+</div></fieldset>
+<label for="phrase">Текст для сравнения</label><select id="phrase" disabled></select>
+<label for="text">Или напиши свою фразу</label><textarea id="text" maxlength="500" aria-describedby="voiceNote"></textarea>
+<div class="actions"><button id="play" disabled>Произнести фразу</button><button class="secondary" id="stop">Прервать</button></div>
+<div id="status" class="status" role="status">Загружаю изображения…</div>
+<p class="note" id="voiceNote">Голос Milena, встроенный в macOS. Оцениваем движение губ, не качество голоса. Один и тот же текст повторно использует тот же звук.</p>
+<details><summary>Как сравнивать</summary><p>Посмотри на смыкание губ в «мама, папа», округление в «У Юли» и паузы. Переключи способ и повтори ту же фразу. Затем проверь собственный текст.</p><p>«Прервать» очищает звук и движения. Микрофон здесь не подключён. Для основного тренажёра этот сигнал должен приходить от серверного Silero VAD ещё до распознавания слов.</p><p>DH Live использует другое лицо, поэтому это сравнение подходов, а не чистый тест одной модели.</p></details>
+<details id="review"><summary>Записать впечатление</summary><div class="rating"><button data-score="good">Убедительно</button><button data-score="mixed">Есть огрехи</button><button data-score="poor">Неестественно</button><button id="export">Скачать оценки</button></div><div id="reviewMsg" role="status"></div></details>
+</section></div><div class="footer">Эксперимент не меняет тренажёр и Pipecat. Процессорная часть проверяется отдельно от браузерной графики. Источники: <a href="https://github.com/ryanhuge/emma-skin">EMMA Skin</a>, <a href="https://huggingface.co/myned-ai/wav2arkit_cpu">wav2arkit CPU</a>, <a href="https://github.com/kleinlee/DH_live">DH Live</a>. Демоматериалы DH Live не предназначены здесь для выпуска от имени нашей команды.</div>
+</main>
+<script type="module">
+// Sprite selection/compositing adapted from EMMA Skin, Ryan Chen, Apache-2.0.
+const $=id=>document.getElementById(id), canvas=$('face'), ctx=canvas.getContext('2d');
+let ac, source, generation=0, active=null, start=0, mode='model', ready=false;
+let base, mouths, eyes, meta, eyeMeta, cache=new Map(), manifest=[], frameTimes=[], current=[0,.3,.2];
+const samples=[], drawDurations=[], reviews=JSON.parse(localStorage.getItem('lipsync-reviews')||'[]');
+const sayStatus=s=>$('status').textContent=s;
+const image=url=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=url});
+const dh=()=>$('neural').contentWindow?.labDH;
+const clamp=v=>Math.max(0,Math.min(1,v));
+function silence(){generation++;if(source){try{source.stop();source.disconnect()}catch{}source=null}active=null;current=[0,.3,.2];dh()?.stop();$('play').disabled=!ready;}
+$('stop').onclick=()=>{silence();sayStatus('Прервано. Звук и очередь движений очищены.')};
+window.addEventListener('pagehide',()=>{silence();ac?.close()});
+function pick(values){const score=s=>((s.openness-values[0])*1.6)**2+((s.width-values[1])*.7)**2+((s.roundness-values[2])*.7)**2;const sorted=[...mouths].sort((a,b)=>score(a)-score(b));let x=Math.sqrt(score(sorted[0])),y=Math.sqrt(score(sorted[1]));return [sorted[0],sorted[1],x+y?x/(x+y):0]}
+function put(im,place,alpha=1){ctx.globalAlpha=alpha;ctx.drawImage(im,place.x/2,place.y/2,place.w/2,place.h/2);ctx.globalAlpha=1}
+function render(t){const t0=performance.now();if(ready&&mode!=='neural'){
+  if(active&&ac){let elapsed=ac.currentTime-start;let i=Math.floor(elapsed*active.fps);let row=active[mode][i];current=row||[0,.3,.2];if(elapsed>=active.duration_s){active=null;current=[0,.3,.2];sayStatus('Готово. Можно сравнить другой способ.')}}
+  ctx.drawImage(base,0,0,416,608);let [a,b,weight]=pick(current);put(a.img,meta.placement);if(weight>.01)put(b.img,meta.placement,weight);
+  const blink=t%4100;let eye=blink<75?eyes[2]:blink<145?eyes[1]:eyes[0];put(eye.img,eyeMeta.placement);
+  if(active){drawDurations.push(performance.now()-t0);frameTimes.push(t);if(frameTimes.length>2000)frameTimes.shift();}
+}requestAnimationFrame(render)}
+async function startPlay(){silence();const id=generation;ac ||= new AudioContext();await ac.resume();const text=$('text').value.trim();if(!text)return sayStatus('Сначала введи текст.');$('play').disabled=true;sayStatus('Готовлю звук и движения…');
+try{let entry=cache.get(text);if(!entry){const known=manifest.find(p=>p.text===text);if(known){entry=await fetch(`/data/${known.id}.json`).then(r=>r.json());entry.wav=await fetch(entry.audio).then(r=>r.arrayBuffer())}else{const response=await fetch('/synthesize',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});if(!response.ok)throw Error(response.status===429?'Предыдущая локальная генерация ещё заканчивается. Повтори через несколько секунд.':'Не удалось синтезировать фразу.');entry=await response.json();entry.wav=Uint8Array.from(atob(entry.wav_base64),c=>c.charCodeAt(0)).buffer}cache.set(text,entry)}if(id!==generation)return;
+ const buffer=await ac.decodeAudioData(entry.wav.slice(0));if(id!==generation)return;
+ if(mode==='neural'){if(!dh()?.ready)throw Error('DH Live ещё загружается. Подожди несколько секунд.');await dh().play(entry.wav.slice(0));if(id!==generation){dh().stop();return}}
+ else{source=ac.createBufferSource();source.buffer=buffer;source.connect(ac.destination);start=ac.currentTime+.05;active=entry;frameTimes=[];source.start(start)}
+ samples.push({mode,text,duration:entry.duration_s,time:Date.now()});sayStatus(`Речь ${entry.duration_s.toFixed(1)} с. ${entry.infer_ms?`CPU-анализ: ${Math.round(entry.infer_ms)} мс; синтез: ${Math.round(entry.tts_ms)} мс.`:'Звук и движения этой фразы подготовлены заранее.'}`);
+}catch(e){if(id===generation)sayStatus(e.message)}finally{if(id===generation)$('play').disabled=false}}
+$('play').onclick=startPlay;
+document.querySelectorAll('[name=mode]').forEach(el=>el.onchange=()=>{silence();mode=el.value;const n=mode==='neural';$('neural').hidden=!n;canvas.hidden=n;dh()?.setActive(n);$('badge').textContent=n?'Демоматериал DH Live · нейросетевая анимация':'Вымышленный AI-персонаж · 8 форм рта';$('caption').textContent=n?'Локально дорисовывается лицо на заранее обработанном видео. WebGL использует встроенную графику.':'EMMA: заранее подготовленные изображения. Во время речи тело почти неподвижно. Это ограничение метода.';sayStatus('Способ изменён. Повтори ту же фразу.')});
+$('phrase').onchange=()=>{silence();$('text').value=manifest[+$('phrase').value].text};
+document.querySelectorAll('[data-score]').forEach(el=>el.onclick=()=>{reviews.push({mode,text:$('text').value,score:el.dataset.score,time:new Date().toISOString()});localStorage.setItem('lipsync-reviews',JSON.stringify(reviews));$('reviewMsg').textContent=`Сохранено на этом устройстве: ${reviews.length} оценок.`});
+$('export').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(reviews,null,2)],{type:'application/json'}));a.download='lipsync-human-review.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+window.lab={get ready(){return ready},get speaking(){return !!active||!!dh()?.speaking},get generation(){return generation},get activeSources(){return source?1:0},get mouth(){return current},get frames(){return frameTimes},get drawMs(){return drawDurations},get samples(){return samples},stop:silence};
+try{[meta,eyeMeta,manifest]=await Promise.all(['vendor/emma/mouth-sprites.json','vendor/emma/eyes.json','manifest.json'].map(p=>fetch('/data/'+p).then(r=>r.json())));[base,mouths,eyes]=await Promise.all([image('/data/vendor/emma/base.png'),Promise.all(meta.sprites.map(async s=>({...s,img:await image('/data/vendor/emma/mouth-sprites/'+s.file)}))),Promise.all(eyeMeta.sprites.map(async s=>({...s,img:await image('/data/vendor/emma/eyes/'+s.file)})))]);eyes.sort((a,b)=>b.openness-a.openness);manifest.forEach((p,i)=>{$('phrase').add(new Option(p.text,i))});$('text').value=manifest[0].text;$('phrase').disabled=false;ready=true;$('play').disabled=false;sayStatus('Готово. Нажми «Произнести фразу».');requestAnimationFrame(render)}catch(e){sayStatus('Не удалось загрузить эксперимент: '+e.message)}
+</script></html>

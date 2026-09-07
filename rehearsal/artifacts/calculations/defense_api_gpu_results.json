@@ -1,0 +1,99 @@
+{
+  "currency_rate_status": "planning assumption, 100 RUB/USD",
+  "scenarios": [
+    {
+      "session_minutes": 5,
+      "sessions": 100,
+      "billed_video_minutes": 500,
+      "generated_tts_characters_assumed": 187500.0,
+      "llm_monthly_usd": 0.64,
+      "voice_monthly_usd": 49,
+      "tavus": {
+        "plan": "Builder",
+        "video_monthly_usd": 172.75,
+        "all_api_monthly_usd": 222.39,
+        "all_api_monthly_rub": 22239.0,
+        "all_api_per_training_rub": 222.39
+      },
+      "anam": {
+        "plan_for_session_length": "Starter",
+        "subscription_usd": null,
+        "video_overage_usd": 72.0,
+        "all_api_monthly_usd_excluding_anam_subscription": 121.64,
+        "all_api_monthly_rub_excluding_anam_subscription": 12164.0,
+        "formula": "add actual monthly Anam subscription in USD times planning FX; unknown is not zero"
+      }
+    },
+    {
+      "session_minutes": 10,
+      "sessions": 100,
+      "billed_video_minutes": 1000,
+      "generated_tts_characters_assumed": 375000.0,
+      "llm_monthly_usd": 1.28,
+      "voice_monthly_usd": 49,
+      "tavus": {
+        "plan": "Builder",
+        "video_monthly_usd": 347.75,
+        "all_api_monthly_usd": 398.03,
+        "all_api_monthly_rub": 39803.0,
+        "all_api_per_training_rub": 398.03
+      },
+      "anam": {
+        "plan_for_session_length": "Explorer",
+        "subscription_usd": null,
+        "video_overage_usd": 105.0,
+        "all_api_monthly_usd_excluding_anam_subscription": 155.28,
+        "all_api_monthly_rub_excluding_anam_subscription": 15528.0,
+        "formula": "add actual monthly Anam subscription in USD times planning FX; unknown is not zero"
+      }
+    },
+    {
+      "session_minutes": 15,
+      "sessions": 100,
+      "billed_video_minutes": 1500,
+      "generated_tts_characters_assumed": 562500.0,
+      "llm_monthly_usd": 2.56,
+      "voice_monthly_usd": 49,
+      "tavus": {
+        "plan": "Growth",
+        "video_monthly_usd": 459.0,
+        "all_api_monthly_usd": 510.56,
+        "all_api_monthly_rub": 51056.0,
+        "all_api_per_training_rub": 510.56
+      },
+      "anam": {
+        "plan_for_session_length": "Growth",
+        "subscription_usd": null,
+        "video_overage_usd": 0.0,
+        "all_api_monthly_usd_excluding_anam_subscription": 51.56,
+        "all_api_monthly_rub_excluding_anam_subscription": 5156.0,
+        "formula": "add actual monthly Anam subscription in USD times planning FX; unknown is not zero"
+      }
+    }
+  ],
+  "gpu_compute_only": [
+    {
+      "hours_per_month": 30,
+      "usd": 32.7,
+      "rub": 3270.0
+    },
+    {
+      "hours_per_month": 176,
+      "usd": 191.84,
+      "rub": 19184.0
+    },
+    {
+      "hours_per_month": 720,
+      "usd": 784.8,
+      "rub": 78480.0
+    }
+  ],
+  "hybrid_cpu_media_with_api_llm_base_monthly_rub": 128.0,
+  "illustrative_business_base": {
+    "methodist_minutes_per_session_assumption": 20,
+    "labor_monthly_rub": 50000.0,
+    "tavus_api_plus_labor_monthly_rub_before_exclusions": 89803.0,
+    "manual_reference_rub": 300000,
+    "effect_proven": false
+  }
+}

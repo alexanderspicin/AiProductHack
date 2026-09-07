@@ -1,0 +1,40 @@
+{
+  "as_of": "2026-09-07",
+  "purpose": "Planning estimate for defense; no purchase, no measured learning effect or GPU capacity claim",
+  "currency": "USD, converted to RUB at an explicit planning rate",
+  "workload": {
+    "sessions_per_month": {"value": 100, "unit": "sessions/month", "source": "case brief", "confidence": "given"},
+    "session_minutes": {"values": [5, 10, 15], "unit": "billed video-session minutes/session including pauses", "source": "planning scenarios, not measured usage", "confidence": "assumption"},
+    "bot_speech_fraction": {"value": 0.5, "unit": "fraction of session duration", "source": "assumption", "confidence": "low"},
+    "tts_chars_per_spoken_minute": {"value": 750, "unit": "characters/minute", "source": "planning conversion, roughly matches Cartesia minute estimates; Russian rate must be measured", "confidence": "low"},
+    "llm_input_tokens": {"values": [20000, 40000, 80000], "unit": "tokens/session including repeated context and report", "source": "assumption; not one-turn tokens", "confidence": "low"},
+    "llm_output_tokens": {"values": [2000, 4000, 8000], "unit": "billed output tokens/session including report and reasoning if any", "source": "assumption", "confidence": "low"},
+    "usd_rub": {"value": 100, "sensitivity": [90, 110], "unit": "RUB/USD", "source": "planning rate, NOT current CBR or card conversion rate", "confidence": "assumption"}
+  },
+  "openai": {"model": "gpt-5.6-luna", "input_usd_per_million": 0.2, "output_usd_per_million": 1.2, "cache_discount": false, "source": "https://developers.openai.com/api/docs/models/gpt-5.6-luna", "confidence": "official current documentation"},
+  "cartesia": {"plan": "Startup", "monthly_usd": 49, "credits_per_month": 1250000, "credits_per_character": 1, "source": "https://www.cartesia.ai/pricing", "account_verification": "read-only Subscription page: play.cartesia.ai/subscription", "note": "Commercial plan with room for both voices; not claimed to be the cheapest possible plan/overage choice"},
+  "tavus": {
+    "source": "https://www.tavus.io/pricing",
+    "account_verification": "read-only maker.tavus.io/dev/billing; current PALs/CVI plan family, not older Starter 100 / Growth 1250 table",
+    "plans": [
+      {"name": "Builder", "monthly_usd": 59, "minutes_included": 175, "overage_usd_min": 0.35, "session_limit_minutes": 15, "concurrency": 3},
+      {"name": "Growth", "monthly_usd": 397, "minutes_included": 1300, "overage_usd_min": 0.31, "session_limit_minutes": null, "concurrency": 10}
+    ],
+    "billing_note": "Whole connected session, 30-second minimum, rounded to nearest 6-second increment; no assumed Echo discount"
+  },
+  "anam": {
+    "source": "https://anam.ai/pricing",
+    "plans": [
+      {"name": "Starter", "monthly_usd": null, "minutes_included": 50, "overage_usd_min": 0.16, "session_limit_minutes": 5},
+      {"name": "Explorer", "monthly_usd": null, "minutes_included": 250, "overage_usd_min": 0.14, "session_limit_minutes": 10},
+      {"name": "Growth", "monthly_usd": null, "minutes_included": 2000, "overage_usd_min": 0.12, "session_limit_minutes": 120}
+    ],
+    "monthly_fee_status": "Unverified. Official page exposes animated digits to text retrieval; browser navigation did not finish. Do not infer a fee from third-party summaries.",
+    "billing_note": "Whole session including silence, billed by second. Website feature table lists 2h Growth while FAQ says unlimited; confirm contract. Both support the modeled 15 minutes."
+  },
+  "gpu": {"candidate": "one L40S 48GB", "hourly_usd": 1.09, "source": "https://www.runpod.io/gpu-models/l40s", "tier": "Secure Cloud advertised starting rate, not reserved quote", "active_hours_per_month": [30, 176, 720], "hours_meaning": ["scheduled test windows incl. assumed warm-up allowance", "22 working days times 8 hours", "30 days times 24 hours"], "concurrent_dialogue_capacity": null, "same_avatar_quality_proven": false, "note": "Hardware pricing only. Benchmark required before assuming one GPU can serve the complete selected local-model stack in real time."},
+  "business": {"manual_baseline_monthly_rub": 300000, "methodist_hourly_rub": 1500, "illustrative_methodist_minutes_per_session": 20, "note": "20 minutes is a pilot hypothesis, not observed labor reduction. All staff time incl. setup/review/corrections must be accounted for."},
+  "exclusions": ["tax", "payment fees and actual exchange spread", "hosting and CPU ASR server", "storage and network", "engineering/support", "avatar preparation and licenses", "retries and idle sessions beyond modeled duration", "guaranteed SLA and failover"],
+  "current_app_limit_minutes": 3,
+  "readiness_note": "5/10/15-minute sessions are business scenarios, not currently enabled in the app. Launcher/server lease limit needs authorized change and tests before pilot."
+}

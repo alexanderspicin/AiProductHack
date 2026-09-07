@@ -1,0 +1,12 @@
+{
+  "mode": "TASK2_AI",
+  "baseline": "d5d2d55: incorrect custom voice pipeline",
+  "upstream": "alexanderspicin/AiProductHack",
+  "upstream_commit": "92edfbde45f7a7be666c6ccdcb9d1e52cb18f30f",
+  "hypothesis": "The training UI and report can integrate with the team's original Pipecat pipeline without replacing its voice processing.",
+  "acceptance": ["server Silero and Smart Turn preserved", "original eight-processor order preserved", "official Pipecat browser transport", "scenario and stage tools in LLM", "voice transcript reaches report", "stop drains training state before report", "no browser ML models"],
+  "deadline": "demo 2026-09-06; defense 2026-09-07",
+  "timebox_minutes": 120,
+  "external_tests": {"openai_requests": 1, "inworld_requests": 0},
+  "stop_rule": "publish implementation and reproducible free checks; real Inworld acceptance requires teammate key"
+}

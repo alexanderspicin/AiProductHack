@@ -1,0 +1,10 @@
+{
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "frames": 6874,
+  "seconds": 13.355176500976086,
+  "peak_allocated_mb": 172.248064,
+  "torch": "2.1.2+cu121",
+  "strict_weights": true,
+  "image_net_only_offline": true,
+  "smoke": false
+}

@@ -1,3 +1,18 @@
+# Итоговая версия для сдачи задания
+
+**Финальный тренажёр находится в [папке rehearsal](rehearsal/README.md).**
+
+Начните с [инструкции запуска и состава проекта](FINAL_VERSION.md): кабинеты участника, методиста и администратора, сценарии обучения, диалоги, отчёты, Pipecat и два выбранных реалистичных аватара.
+
+- [Запуск основного приложения](rehearsal/README.md).
+- [CPU-демо и открытые альтернативы](rehearsal/docs/OFFLINE_DEFENSE.md).
+- [Материалы для защиты и экономика](rehearsal/docs/SLIDE_EDITS_AND_COSTS.md), [более дешёвые API](rehearsal/docs/CHEAPER_API_COSTS.md).
+- [Результаты проверки перед передачей](rehearsal/DELIVERY.md).
+
+Новая версия добавлена рядом с исходным проектом. Старые `backend/`, `frontend/`, Docker-файлы и описание ниже сохранены. Команды для финального приложения выполняются из `rehearsal/`; инструкции ниже относятся к первоначальному голосовому прототипу.
+
+---
+
 # AiProductHack — локальный голосовой ассистент с 3D-аватаром
 
 A local voice + 3D avatar assistant, inspired by [ykshv/rula](https://github.com/ykshv/rula), built on

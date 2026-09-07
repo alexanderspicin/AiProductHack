@@ -1,0 +1,12 @@
+{
+  "mode": "TASK2_AI",
+  "request": "Integrate voice and avatar from AiProductHack with the existing training agent",
+  "source_commit": "92edfbde45f7a7be666c6ccdcb9d1e52cb18f30f",
+  "baseline": "text workspace ca720eb; 31 backend and 10 frontend tests",
+  "hypothesis": "Word timestamps and the browser audio clock keep avatar articulation aligned without replacing the training agent",
+  "acceptance": ["text mode unchanged", "audio and avatar can be stopped together", "late synthesis cannot restart after cancellation", "no paid calls without explicit configuration", "scenario and report remain in the same session"],
+  "paid_api_budget": 0,
+  "timebox_minutes": 90,
+  "stop_rule": "complete local integration and free checks; live Inworld quality requires an approved key and budget",
+  "publication": "local only; private upstream and avatar redistribution require approval"
+}

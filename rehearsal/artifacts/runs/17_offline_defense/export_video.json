@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-07",
+  "example": 1,
+  "text": "Понимаю ваши сомнения. Я уже пробовал похожее решение, но результата не получил. Чем ваш подход отличается?",
+  "voice": "piper",
+  "cached_tts": true,
+  "output": "artifacts/private/17_offline_defense/example-1-piper.mp4",
+  "source_size": [
+    360,
+    540
+  ],
+  "fps": 25,
+  "frames": 159,
+  "video_seconds": 6.32,
+  "audio_seconds": 6.326984,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "bytes": 372180,
+  "total_export_s": 6.702,
+  "external_requests": [],
+  "api_cost_rub": 0,
+  "decode_ok": true
+}

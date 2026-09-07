@@ -1,0 +1,13 @@
+{
+  "browser_gpu_disabled": true,
+  "measured_fps": 24.914578588545005,
+  "draw_ms_p95": 0.19999992847442627,
+  "cancel_handler_ms": 1.100000023841858,
+  "cancellation_stopped_audio_and_mouth": true,
+  "stale_preparation_did_not_resume": true,
+  "new_phrase_after_cancel": true,
+  "idle_body_continues": true,
+  "mobile_overflow": false,
+  "errors": [],
+  "external_requests": []
+}

@@ -1,0 +1,12 @@
+{
+  "decision": "keep",
+  "frontend_tests": { "passed": 30, "files": 10, "seconds": 1.16 },
+  "backend_tests": { "passed": 108, "warnings": 24, "seconds": 3.42 },
+  "production_build": { "passed": true, "seconds": 1.54, "known_warning": "legacy 3D chunk exceeds 500 kB" },
+  "browser": { "call_viewports_passed": 8, "text_viewports_passed": 2, "javascript_errors": 0, "external_requests": 0, "unexpected_write_requests": 0 },
+  "api_cost_rub": 0,
+  "real_microphone_tested": false,
+  "real_voice_video_tested_this_run": false,
+  "runtime_http": { "frontend_5176": 200, "backend_8003": 200 },
+  "impeccable_update": "not_applied_existing_installation_not_detected"
+}

@@ -1,0 +1,23 @@
+{
+  "mode": "TASK2_AI",
+  "objective": "Bake avatar graphics on GPU once; animate arbitrary unseen speech locally from the baked package without an image-generation neural network at runtime",
+  "requirements": [
+    "Executable offline graphics-baking algorithm, run on user's own GPU pod",
+    "Portable avatar package with graphical states, coverage metadata and transitions",
+    "Independent CPU runtime with no CUDA, PyTorch image model or network requirement",
+    "New Russian speech not used to build the state library",
+    "Temporal continuity, moving head/background and explicit silence/interruption handling",
+    "Measured quality loss against an unquantized teacher, CPU speed, memory and package size",
+    "Runnable demo, tests and reproducible instructions; honest limits on realism"
+  ],
+  "baseline": "Run 05 uses supplied eight mouth sprites or live DH neural rendering. Neither is the requested full baking cycle.",
+  "hypothesis": "A pose-conditioned graphical atlas plus temporally coherent state selection can replace live neural image synthesis at lower runtime cost",
+  "primary": "Lip-region reconstruction error against held-out teacher renders, plus human inspection of side-by-side video",
+  "guardrails": {"runtime_fps_target": 25, "max_package_mb_target": 500, "no_live_image_inference": true},
+  "data_split": "Separate Russian calibration corpus and held-out phrases. Codebook and temporal penalties frozen before evaluation.",
+  "seed": 20260905,
+  "initial_timebox_minutes": 90,
+  "stop_rule": "Do not call completed until baking and independent CPU playback both run, unseen speech is evaluated, and the original goal passes an explicit audit",
+  "cost": {"external_api_budget_rub": 0, "gpu": "User authorized own existing pod; H100 discovered running and idle; no resource scaling"},
+  "asset_policy": "Public research/demo material or synthetic character; preserve attribution/watermarks; do not publish a demo face as a commercially cleared identity"
+}

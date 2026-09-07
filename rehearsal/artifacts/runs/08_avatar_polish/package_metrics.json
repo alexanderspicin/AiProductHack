@@ -1,0 +1,21 @@
+{
+  "fresh_extraction": true,
+  "ui_included": true,
+  "runtime_subprocess": true,
+  "runtime": {
+    "outside_coverage_fraction": 0.006896551724137931,
+    "mean_control_error": 1.3429527282714844,
+    "silence_frames": 22,
+    "selector_s": 0.001177292000647867,
+    "audio_driver": {
+      "seconds": 0.00674658299976727,
+      "duration_s": 5.7951875
+    },
+    "frames": 145,
+    "total_with_encoding_s": 1.7291292079999039,
+    "compose_ms_median": 11.886917000083486,
+    "compose_ms_p95": 12.880141799723788,
+    "compose_ms_max": 19.710624999788706
+  },
+  "archive_bytes": 108302032
+}

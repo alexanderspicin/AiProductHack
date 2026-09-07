@@ -1,0 +1,193 @@
+{
+  "as_of": "2026-09-07",
+  "scope": "API only; planning scenarios, not observed invoices",
+  "usd_rub": 100,
+  "scenarios": [
+    {
+      "session_minutes": 5,
+      "video_minutes_month": 500,
+      "tts_chars_month": 187500,
+      "combinations": [
+        {
+          "avatar": "Tavus",
+          "video_plan": "Builder",
+          "voice": "Cartesia Startup",
+          "video_usd_month": 172.75,
+          "tts_usd_month": 49.0,
+          "llm_usd_month": 0.64,
+          "api_rub_month": 22239.0,
+          "api_rub_training": 222.39,
+          "savings_percent": 0.0
+        },
+        {
+          "avatar": "Tavus",
+          "video_plan": "Builder",
+          "voice": "Inworld TTS-2",
+          "video_usd_month": 172.75,
+          "tts_usd_month": 4.69,
+          "llm_usd_month": 0.64,
+          "api_rub_month": 17807.75,
+          "api_rub_training": 178.08,
+          "savings_percent": 19.93
+        },
+        {
+          "avatar": "LiveAvatar",
+          "video_plan": "Starter",
+          "voice": "Cartesia Startup",
+          "video_usd_month": 49.0,
+          "tts_usd_month": 49.0,
+          "llm_usd_month": 0.64,
+          "api_rub_month": 9864.0,
+          "api_rub_training": 98.64,
+          "savings_percent": 55.65
+        },
+        {
+          "avatar": "LiveAvatar",
+          "video_plan": "Starter",
+          "voice": "Inworld TTS-2",
+          "video_usd_month": 49.0,
+          "tts_usd_month": 4.69,
+          "llm_usd_month": 0.64,
+          "api_rub_month": 5432.75,
+          "api_rub_training": 54.33,
+          "savings_percent": 75.57
+        },
+        {
+          "avatar": "LiveAvatar",
+          "video_plan": "Starter",
+          "voice": "Inworld TTS-2 Flash",
+          "video_usd_month": 49.0,
+          "tts_usd_month": 2.81,
+          "llm_usd_month": 0.64,
+          "api_rub_month": 5245.25,
+          "api_rub_training": 52.45,
+          "savings_percent": 76.41
+        }
+      ]
+    },
+    {
+      "session_minutes": 10,
+      "video_minutes_month": 1000,
+      "tts_chars_month": 375000,
+      "combinations": [
+        {
+          "avatar": "Tavus",
+          "video_plan": "Builder",
+          "voice": "Cartesia Startup",
+          "video_usd_month": 347.75,
+          "tts_usd_month": 49.0,
+          "llm_usd_month": 1.28,
+          "api_rub_month": 39803.0,
+          "api_rub_training": 398.03,
+          "savings_percent": 0.0
+        },
+        {
+          "avatar": "Tavus",
+          "video_plan": "Builder",
+          "voice": "Inworld TTS-2",
+          "video_usd_month": 347.75,
+          "tts_usd_month": 9.38,
+          "llm_usd_month": 1.28,
+          "api_rub_month": 35840.5,
+          "api_rub_training": 358.4,
+          "savings_percent": 9.96
+        },
+        {
+          "avatar": "LiveAvatar",
+          "video_plan": "Essential",
+          "voice": "Cartesia Startup",
+          "video_usd_month": 99.0,
+          "tts_usd_month": 49.0,
+          "llm_usd_month": 1.28,
+          "api_rub_month": 14928.0,
+          "api_rub_training": 149.28,
+          "savings_percent": 62.5
+        },
+        {
+          "avatar": "LiveAvatar",
+          "video_plan": "Essential",
+          "voice": "Inworld TTS-2",
+          "video_usd_month": 99.0,
+          "tts_usd_month": 9.38,
+          "llm_usd_month": 1.28,
+          "api_rub_month": 10965.5,
+          "api_rub_training": 109.66,
+          "savings_percent": 72.45
+        },
+        {
+          "avatar": "LiveAvatar",
+          "video_plan": "Essential",
+          "voice": "Inworld TTS-2 Flash",
+          "video_usd_month": 99.0,
+          "tts_usd_month": 5.62,
+          "llm_usd_month": 1.28,
+          "api_rub_month": 10590.5,
+          "api_rub_training": 105.9,
+          "savings_percent": 73.39
+        }
+      ]
+    },
+    {
+      "session_minutes": 15,
+      "video_minutes_month": 1500,
+      "tts_chars_month": 562500,
+      "combinations": [
+        {
+          "avatar": "Tavus",
+          "video_plan": "Growth",
+          "voice": "Cartesia Startup",
+          "video_usd_month": 459.0,
+          "tts_usd_month": 49.0,
+          "llm_usd_month": 2.56,
+          "api_rub_month": 51056.0,
+          "api_rub_training": 510.56,
+          "savings_percent": 0.0
+        },
+        {
+          "avatar": "Tavus",
+          "video_plan": "Growth",
+          "voice": "Inworld TTS-2",
+          "video_usd_month": 459.0,
+          "tts_usd_month": 14.06,
+          "llm_usd_month": 2.56,
+          "api_rub_month": 47562.25,
+          "api_rub_training": 475.62,
+          "savings_percent": 6.84
+        },
+        {
+          "avatar": "LiveAvatar",
+          "video_plan": "Essential",
+          "voice": "Cartesia Startup",
+          "video_usd_month": 137.0,
+          "tts_usd_month": 49.0,
+          "llm_usd_month": 2.56,
+          "api_rub_month": 18856.0,
+          "api_rub_training": 188.56,
+          "savings_percent": 63.07
+        },
+        {
+          "avatar": "LiveAvatar",
+          "video_plan": "Essential",
+          "voice": "Inworld TTS-2",
+          "video_usd_month": 137.0,
+          "tts_usd_month": 14.06,
+          "llm_usd_month": 2.56,
+          "api_rub_month": 15362.25,
+          "api_rub_training": 153.62,
+          "savings_percent": 69.91
+        },
+        {
+          "avatar": "LiveAvatar",
+          "video_plan": "Essential",
+          "voice": "Inworld TTS-2 Flash",
+          "video_usd_month": 137.0,
+          "tts_usd_month": 8.44,
+          "llm_usd_month": 2.56,
+          "api_rub_month": 14799.75,
+          "api_rub_training": 148.0,
+          "savings_percent": 71.01
+        }
+      ]
+    }
+  ]
+}

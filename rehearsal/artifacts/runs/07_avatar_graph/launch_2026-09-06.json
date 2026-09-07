@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-06",
+  "base": "http://127.0.0.1:8897",
+  "page_ready": true,
+  "poses": 100,
+  "examples": [
+    {
+      "name": "new_training_cpu.mp4",
+      "url": "http://127.0.0.1:8897/new_training_cpu.mp4",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 360,
+          "height": 540
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "duration_s": 6.809,
+      "audio_rms": 0.11787746846675873,
+      "decoded": true
+    },
+    {
+      "name": "new_closures_cpu.mp4",
+      "url": "http://127.0.0.1:8897/new_closures_cpu.mp4",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 360,
+          "height": 540
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "duration_s": 5.796,
+      "audio_rms": 0.14270830154418945,
+      "decoded": true
+    },
+    {
+      "name": "new_rounding_cpu.mp4",
+      "url": "http://127.0.0.1:8897/new_rounding_cpu.mp4",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 360,
+          "height": 540
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "duration_s": 6.307,
+      "audio_rms": 0.14319610595703125,
+      "decoded": true
+    },
+    {
+      "name": "comparison.mp4",
+      "url": "http://127.0.0.1:8897/comparison.mp4",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1080,
+          "height": 580
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "duration_s": 6.809,
+      "audio_rms": 0.11787746846675873,
+      "decoded": true
+    }
+  ],
+  "external_paid_calls": 0
+}

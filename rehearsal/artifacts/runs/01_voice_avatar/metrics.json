@@ -1,0 +1,39 @@
+{
+  "decision": "keep",
+  "checked_at": "2026-09-05T11:50:00+03:00",
+  "backend_tests": {
+    "passed": 60,
+    "failed": 0,
+    "duration_seconds": 0.49
+  },
+  "frontend_tests": {
+    "passed": 16,
+    "failed": 0,
+    "files": 4,
+    "duration_seconds": 0.742
+  },
+  "frontend_build": {
+    "status": "passed",
+    "modules": 88,
+    "base_bundle_kb": 270.91,
+    "base_bundle_gzip_kb": 82.22,
+    "lazy_voice_bundle_kb": 1053.77,
+    "lazy_voice_bundle_gzip_kb": 278.91
+  },
+  "local_asr": {
+    "status": "passed",
+    "engine": "mlx",
+    "local_only": true,
+    "audio_ms": 2990,
+    "elapsed_ms": 3089,
+    "reference": "Добрый день. Давайте обсудим вашу задачу.",
+    "transcript": "Добрый день! Давайте обсудим вашу задачу."
+  },
+  "avatar_visual_smoke": "passed",
+  "inworld_disabled_fallback": {
+    "http_status": 503,
+    "used_requests_before": 0,
+    "used_requests_after": 0
+  },
+  "paid_voice_requests": 0
+}

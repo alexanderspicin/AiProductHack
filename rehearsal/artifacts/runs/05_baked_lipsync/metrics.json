@@ -1,0 +1,75 @@
+{
+  "hardware": "macOS-26.6.2-arm64-arm-64bit",
+  "chip": "Apple M3 Pro",
+  "onnxruntime": "1.24.4",
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "threads": 4,
+  "model_load_ms": 1125.58,
+  "model_bytes": 403926113,
+  "phrases": [
+    {
+      "id": "closures",
+      "duration_s": 3.9950625,
+      "frames": 120,
+      "tts_ms": 923.39,
+      "initial_inference_ms": 244.16,
+      "warm_inference_ms": [
+        212.10445801261812,
+        224.15854106657207,
+        254.00516705121845
+      ],
+      "median_inference_ms": 224.15854106657207,
+      "rtf_compute_over_audio": 0.056108894683517985,
+      "frame_timeline_error_ms": 4.94
+    },
+    {
+      "id": "rounding",
+      "duration_s": 4.06075,
+      "frames": 122,
+      "tts_ms": 950.01,
+      "initial_inference_ms": 229.65,
+      "warm_inference_ms": [
+        208.73475004918873,
+        191.63562508765608,
+        182.55799997132272
+      ],
+      "median_inference_ms": 191.63562508765608,
+      "rtf_compute_over_audio": 0.047192175112394534,
+      "frame_timeline_error_ms": 5.92
+    },
+    {
+      "id": "training",
+      "duration_s": 6.185125,
+      "frames": 186,
+      "tts_ms": 1132.12,
+      "initial_inference_ms": 332.02,
+      "warm_inference_ms": [
+        285.19945801235735,
+        277.51962502952665,
+        266.6696250671521
+      ],
+      "median_inference_ms": 277.51962502952665,
+      "rtf_compute_over_audio": 0.044868878968416424,
+      "frame_timeline_error_ms": 14.87
+    }
+  ],
+  "api_spend_rub": 0,
+  "gpu_pod_used": false,
+  "quality_scores": null,
+  "chunks": [
+    {
+      "audio_s": 1,
+      "inference_ms": 46.42216593492776,
+      "extra_wait_if_full_chunk_required_ms": 1000,
+      "mean_abs_coefficient_difference_from_full_context": 0.0047934697940945625
+    },
+    {
+      "audio_s": 2,
+      "inference_ms": 85.59654094278812,
+      "extra_wait_if_full_chunk_required_ms": 2000,
+      "mean_abs_coefficient_difference_from_full_context": 0.004410653840750456
+    }
+  ]
+}

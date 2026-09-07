@@ -1,0 +1,12 @@
+{
+  "mode": "TASK2_AI",
+  "deadline": null,
+  "timebox_minutes": 90,
+  "hypothesis": "A grounded character prompt plus evidence-backed flexible goals will reduce coaching while a visible ordered plan and public situation brief keep the task understandable.",
+  "scope": ["shared character prompt", "out-of-order goal evidence in text and voice", "public situation field", "visible ordered plan", "pre-call brief", "report distinguishes progress from score"],
+  "compatibility": "New live sessions use flexible progress; old sessions keep their saved progress mode and history. No automatic overwrite of authored scenarios.",
+  "checks": ["out-of-order and multiple goals", "reject invented evidence", "cancel and retry", "reconnect persistence", "role and gender", "no private facts in public brief", "desktop/mobile long plan", "full regression"],
+  "llm_probe_max_calls": 16,
+  "media_api_calls_planned": 0,
+  "stop": "Implementation, tests, browser checks and bounded text probes complete; live microphone/video separately labelled"
+}

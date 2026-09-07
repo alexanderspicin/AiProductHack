@@ -1,0 +1,13 @@
+{
+  "unit_tests": {"passed": 5, "failed": 0, "duration_s": 1.496},
+  "http": {"page": 200, "foreign_origin_post": 403, "empty_text_post": 400},
+  "browser_final": "browser_metrics.json",
+  "visual_inspection": ["cpu_contact_sheet.jpg", "lab_desktop.png", "lab_neural.png"],
+  "observed_artifacts": ["EMMA body static while speaking", "DH Live green fringe near head silhouette"],
+  "not_verified": ["Human judgement of Russian articulation", "Microphone VAD interruption latency", "Phoneme-aligned perceptual offset", "Full streaming audio inference", "Preparation of a new personal avatar on GPU", "Commercial rights to DH Live demo face"],
+  "external_api_calls": 0,
+  "external_api_spend_rub": 0,
+  "gpu_pod_mutations": 0,
+  "main_application_code_edits": 0,
+  "scope": "Own isolated run 05 only; concurrent unrelated work preserved"
+}

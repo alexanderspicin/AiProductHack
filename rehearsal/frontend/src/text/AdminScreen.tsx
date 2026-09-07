@@ -1,0 +1,32 @@
+import { useEffect, useState } from 'react'
+import { api } from './api'
+import type { Bootstrap, Settings } from './types'
+import { Badge, ErrorNotice, Icon, useUnsavedChanges } from './ui'
+import { ApiUsagePanel } from './ApiUsagePanel'
+
+export function AdminScreen({ settings, budget, reload, notify }: { settings: Settings; budget: NonNullable<Bootstrap['budget']>; reload: () => void; notify: (text: string) => void }) {
+  const [draft, setDraft] = useState(settings)
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState('')
+  const [voice, setVoice] = useState<{ provider: string; key_configured: boolean; enabled: boolean; voice: string; used_requests: number | null; available: boolean; detail: string; vad: string; turn_detection: string } | null>(null)
+  const [asr, setAsr] = useState<{ available: boolean; engine: string; model: string; local_only: boolean } | null>(null)
+  useUnsavedChanges(JSON.stringify(draft) !== JSON.stringify(settings))
+  useEffect(() => setDraft(settings), [settings.revision])
+  useEffect(() => { void Promise.all([api<typeof voice>('/pipeline/status'), api<typeof asr>('/pipeline/status')]).then(([v, a]) => { setVoice(v); setAsr(a) }).catch(() => {}) }, [settings.revision])
+  const update = (value: Partial<Settings>) => setDraft(s => ({ ...s, ...value }))
+  const save = async () => {
+    setBusy(true); setError('')
+    try { setDraft(await api<Settings>('/settings', 'PUT', draft)); reload(); notify('Настройки сохранены. Применятся к новым тренировкам.') }
+    catch (e) { setError((e as Error).message) } finally { setBusy(false) }
+  }
+  return <><div className="page-heading"><div><h1>Настройки агента</h1><p>Управляйте тренировкой здесь. Участнику не нужно выбирать модель или технологии.</p></div><Badge>Локальный администратор</Badge></div>
+    <div className="settings-layout"><form className="settings-form" onSubmit={e => { e.preventDefault(); void save() }}>
+      {error && <ErrorNotice message={error} clear={() => setError('')} />}
+      <section className="settings-section"><h2>Режим тренировки</h2><p className="section-description">Фиксируется в начале сессии и не меняется посреди разговора.</p><div className="mode-options">{[['practice', 'Практика', 'Участник видит цель этапа и может открыть подсказку.'], ['assessment', 'Проверка', 'Без подсказок во время разговора. Разбор после завершения.']].map(([value, title, description]) => <label key={value} className={`mode-option ${draft.mode === value ? 'selected' : ''}`}><input type="radio" name="training-mode" value={value} checked={draft.mode === value} onChange={() => update({ mode: value as Settings['mode'] })} /><span><strong>{title}</strong><small>{description}</small></span></label>)}</div></section>
+      <section className="settings-section"><h2>Поведение собеседника</h2><div className="field-grid"><label className="field">Стиль разговора<select value={draft.difficulty} onChange={e => update({ difficulty: e.target.value as Settings['difficulty'] })}><option value="supportive">Поддерживающий</option><option value="balanced">Сбалансированный</option><option value="strict">Требовательный</option></select></label><label className="field">Максимум реплик участника<input type="number" min={3} max={24} required value={draft.max_turns} onChange={e => update({ max_turns: Number(e.target.value) })} /><small>После лимита разговор завершается.</small></label></div><label className="field">Общие инструкции<textarea rows={4} maxLength={2000} value={draft.instructions} onChange={e => update({ instructions: e.target.value })} /><small>Роль, факты и этапы каждого сценария задаёт методист.</small></label></section>
+      <section className="settings-section"><h2>Модель и подключение</h2><div className="field-grid"><label className="field">Источник ответов<select value={draft.provider} onChange={e => update({ provider: e.target.value as Settings['provider'] })}><option value="openai">OpenAI API · реальные ответы</option><option value="demo">Демо · заготовленные ответы</option></select></label><label className="field">Текстовая модель<select disabled={draft.provider === 'demo'} value={draft.model} onChange={e => update({ model: e.target.value as Settings['model'] })}><option value="gpt-5.6-luna">GPT-5.6 Luna · экономный</option><option value="gpt-4.1-mini-2025-04-14">GPT-4.1 mini · проверенный ранее</option></select></label></div><div className="notice compact"><Icon name="info" size={18} /><span>{draft.provider === 'demo' ? 'Демо проверяет интерфейс, а не качество диалога. На всех тренировках будет явная пометка, числовая оценка выключена.' : 'Один запрос на реплику и один на итоговый разбор. Автоповторов и незаметной смены модели нет. Luna работает без дополнительного рассуждения.'}</span></div></section>
+      <section className="settings-section"><h2>Интерфейс участника</h2><p className="section-description">Голос, внешность и резерв без видео настраиваются отдельно. Изменения действуют для новых тренировок.</p><a className="button secondary" href="#/presentation">Выбрать персонажа</a><p className="section-description">Сейчас: {draft.voice_mode === 'text' ? 'переписка' : draft.avatar_profile === 'tavus_sergei' ? 'Даниил · Cartesia и Tavus' : draft.avatar_profile === 'anam_tatiana' ? 'Татьяна · Cartesia и Anam' : 'прежний 3D-персонаж'}.</p></section>
+      <div className="settings-save"><button type="button" className="button secondary" disabled={busy} onClick={() => { setDraft(settings); setError('') }}>Отменить изменения</button><button className="button primary" disabled={busy}>{busy ? 'Сохраняем…' : 'Сохранить настройки'}<Icon name="check" size={17} /></button></div>
+    </form><div className="admin-side-stack"><ApiUsagePanel budget={budget} reload={reload} />{voice && <aside className="connection-panel voice-admin-status"><div className="section-row"><h3>Голосовое подключение</h3><Badge tone={voice.available ? 'green' : 'amber'}>{voice.available ? 'Настроено' : 'Не подключено'}</Badge></div><p className="panel-footnote">Silero VAD и Smart Turn v3 работают на сервере.</p><dl className="connection-facts"><div><dt>{voice.provider || 'Голос'}</dt><dd>{voice.enabled ? voice.voice : 'Выключен'}</dd></div><div><dt>Расход голоса и видео</dt><dd>В кабинетах сервисов</dd></div><div><dt>Серверный Whisper</dt><dd>{asr?.model || 'small'}</dd></div></dl><p className="panel-footnote">{voice.detail}</p><p className="panel-footnote">Ключи хранятся на сервере. Минуты видео расходуются только после подключения.</p></aside>}</div></div>
+  </>
+}

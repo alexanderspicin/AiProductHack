@@ -1,0 +1,533 @@
+{
+  "viewports": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "width": 1440,
+        "height": 900
+      },
+      "video": {
+        "x": 13,
+        "y": 131.390625,
+        "width": 1034,
+        "height": 652.609375,
+        "bottom": 784,
+        "right": 1047
+      },
+      "chat": {
+        "x": 1047,
+        "y": 131.390625,
+        "width": 380,
+        "height": 755.609375,
+        "bottom": 887,
+        "right": 1427
+      },
+      "input": {
+        "x": 1060,
+        "y": 717,
+        "width": 355,
+        "height": 113,
+        "bottom": 830,
+        "right": 1415
+      },
+      "start": {
+        "x": 451.03125,
+        "y": 829,
+        "width": 147.765625,
+        "height": 44,
+        "bottom": 873,
+        "right": 598.796875
+      },
+      "transcriptScroll": true,
+      "transcriptHeight": 509,
+      "pass": true,
+      "planCount": 3,
+      "taskVisible": true,
+      "taskClosed": true,
+      "options": {
+        "x": 691,
+        "y": 581.4375,
+        "width": 340,
+        "height": 233.5625
+      },
+      "optionsClosed": true,
+      "optionsClickAway": true,
+      "finishButton": {
+        "x": 1237.109375,
+        "y": 814,
+        "width": 124.15625,
+        "height": 40
+      },
+      "draftRestored": true
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "document": {
+        "width": 1280,
+        "height": 720
+      },
+      "video": {
+        "x": 13,
+        "y": 131.390625,
+        "width": 895.609375,
+        "height": 472.609375,
+        "bottom": 604,
+        "right": 908.609375
+      },
+      "chat": {
+        "x": 908.609375,
+        "y": 131.390625,
+        "width": 358.390625,
+        "height": 575.609375,
+        "bottom": 707,
+        "right": 1267
+      },
+      "input": {
+        "x": 921.609375,
+        "y": 537,
+        "width": 333.390625,
+        "height": 113,
+        "bottom": 650,
+        "right": 1255
+      },
+      "start": {
+        "x": 381.828125,
+        "y": 649,
+        "width": 147.765625,
+        "height": 44,
+        "bottom": 693,
+        "right": 529.59375
+      },
+      "transcriptScroll": true,
+      "transcriptHeight": 329,
+      "pass": true,
+      "planCount": 3,
+      "taskVisible": true,
+      "taskClosed": true,
+      "options": {
+        "x": 552.609375,
+        "y": 401.4375,
+        "width": 340,
+        "height": 233.5625
+      },
+      "optionsClosed": true,
+      "optionsClickAway": true,
+      "finishButton": {
+        "x": 1098.71875,
+        "y": 634,
+        "width": 124.15625,
+        "height": 40
+      },
+      "draftRestored": true
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "document": {
+        "width": 1024,
+        "height": 768
+      },
+      "video": {
+        "x": 13,
+        "y": 131.390625,
+        "width": 698,
+        "height": 520.609375,
+        "bottom": 652,
+        "right": 711
+      },
+      "chat": {
+        "x": 711,
+        "y": 131.390625,
+        "width": 300,
+        "height": 623.609375,
+        "bottom": 755,
+        "right": 1011
+      },
+      "input": {
+        "x": 724,
+        "y": 585,
+        "width": 275,
+        "height": 113,
+        "bottom": 698,
+        "right": 999
+      },
+      "start": {
+        "x": 220.796875,
+        "y": 697,
+        "width": 147.765625,
+        "height": 44,
+        "bottom": 741,
+        "right": 368.5625
+      },
+      "transcriptScroll": true,
+      "transcriptHeight": 377,
+      "pass": true,
+      "planCount": 3,
+      "taskVisible": true,
+      "taskClosed": true,
+      "options": {
+        "x": 355,
+        "y": 449.4375,
+        "width": 340,
+        "height": 233.5625
+      },
+      "optionsClosed": true,
+      "optionsClickAway": true,
+      "finishButton": {
+        "x": 739,
+        "y": 682,
+        "width": 124.15625,
+        "height": 40
+      },
+      "draftRestored": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "document": {
+        "width": 390,
+        "height": 844
+      },
+      "video": {
+        "x": 0,
+        "y": 102,
+        "width": 390,
+        "height": 312.40625,
+        "bottom": 414.40625,
+        "right": 390
+      },
+      "chat": {
+        "x": 0,
+        "y": 506.40625,
+        "width": 390,
+        "height": 337.59375,
+        "bottom": 844,
+        "right": 390
+      },
+      "input": {
+        "x": 12,
+        "y": 774,
+        "width": 366,
+        "height": 62,
+        "bottom": 836,
+        "right": 378
+      },
+      "start": {
+        "x": 96.109375,
+        "y": 452.40625,
+        "width": 147.765625,
+        "height": 44,
+        "bottom": 496.40625,
+        "right": 243.875
+      },
+      "transcriptScroll": true,
+      "transcriptHeight": 258,
+      "pass": true,
+      "planCount": 3,
+      "taskVisible": true,
+      "taskClosed": true,
+      "options": {
+        "x": 42,
+        "y": 204.84375,
+        "width": 340,
+        "height": 233.5625
+      },
+      "optionsClosed": true,
+      "optionsClickAway": true,
+      "finishButton": {
+        "x": 27,
+        "y": 775,
+        "width": 336,
+        "height": 40
+      },
+      "draftRestored": true
+    },
+    {
+      "viewport": {
+        "width": 667,
+        "height": 375
+      },
+      "document": {
+        "width": 667,
+        "height": 375
+      },
+      "video": {
+        "x": 0,
+        "y": 102,
+        "width": 407,
+        "height": 181,
+        "bottom": 283,
+        "right": 407
+      },
+      "chat": {
+        "x": 407,
+        "y": 102,
+        "width": 260,
+        "height": 273,
+        "bottom": 375,
+        "right": 667
+      },
+      "input": {
+        "x": 416,
+        "y": 281,
+        "width": 243,
+        "height": 86,
+        "bottom": 367,
+        "right": 659
+      },
+      "start": {
+        "x": 104.609375,
+        "y": 321,
+        "width": 147.765625,
+        "height": 44,
+        "bottom": 365,
+        "right": 252.375
+      },
+      "transcriptScroll": true,
+      "transcriptHeight": 116,
+      "pass": true,
+      "planCount": 3,
+      "taskVisible": true,
+      "taskClosed": true,
+      "options": {
+        "x": 59,
+        "y": 82,
+        "width": 340,
+        "height": 225
+      },
+      "optionsClosed": true,
+      "optionsClickAway": true,
+      "finishButton": {
+        "x": 431,
+        "y": 334.78125,
+        "width": 213,
+        "height": 40
+      },
+      "draftRestored": true
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 640
+      },
+      "document": {
+        "width": 320,
+        "height": 640
+      },
+      "video": {
+        "x": 0,
+        "y": 117.1875,
+        "width": 320,
+        "height": 174.8125,
+        "bottom": 292,
+        "right": 320
+      },
+      "chat": {
+        "x": 0,
+        "y": 384,
+        "width": 320,
+        "height": 256,
+        "bottom": 640,
+        "right": 320
+      },
+      "input": {
+        "x": 12,
+        "y": 570,
+        "width": 296,
+        "height": 62,
+        "bottom": 632,
+        "right": 308
+      },
+      "start": {
+        "x": 61.109375,
+        "y": 330,
+        "width": 147.765625,
+        "height": 44,
+        "bottom": 374,
+        "right": 208.875
+      },
+      "transcriptScroll": true,
+      "transcriptHeight": 176,
+      "pass": true,
+      "planCount": 3,
+      "taskVisible": true,
+      "taskClosed": true,
+      "options": {
+        "x": 8,
+        "y": 82.4375,
+        "width": 304,
+        "height": 233.5625
+      },
+      "optionsClosed": true,
+      "optionsClickAway": true,
+      "finishButton": {
+        "x": 27,
+        "y": 571,
+        "width": 266,
+        "height": 40
+      },
+      "draftRestored": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 420
+      },
+      "document": {
+        "width": 390,
+        "height": 420
+      },
+      "video": {
+        "x": 0,
+        "y": 102,
+        "width": 390,
+        "height": 77.609375,
+        "bottom": 179.609375,
+        "right": 390
+      },
+      "chat": {
+        "x": 0,
+        "y": 243.609375,
+        "width": 390,
+        "height": 176.390625,
+        "bottom": 420,
+        "right": 390
+      },
+      "input": {
+        "x": 12,
+        "y": 350,
+        "width": 366,
+        "height": 62,
+        "bottom": 412,
+        "right": 378
+      },
+      "start": {
+        "x": 96.109375,
+        "y": 189.609375,
+        "width": 147.765625,
+        "height": 44,
+        "bottom": 233.609375,
+        "right": 243.875
+      },
+      "transcriptScroll": true,
+      "transcriptHeight": 96,
+      "pass": true,
+      "planCount": 3,
+      "taskVisible": true,
+      "taskClosed": true,
+      "options": {
+        "x": 42,
+        "y": 41.21875,
+        "width": 340,
+        "height": 134.390625
+      },
+      "optionsClosed": true,
+      "optionsClickAway": true,
+      "finishButton": {
+        "x": 27,
+        "y": 380.109375,
+        "width": 336,
+        "height": 40
+      },
+      "draftRestored": true
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 360
+      },
+      "document": {
+        "width": 320,
+        "height": 360
+      },
+      "video": {
+        "x": 0,
+        "y": 117.1875,
+        "width": 320,
+        "height": 27.625,
+        "bottom": 144.8125,
+        "right": 320
+      },
+      "chat": {
+        "x": 0,
+        "y": 208.8125,
+        "width": 320,
+        "height": 151.1875,
+        "bottom": 360,
+        "right": 320
+      },
+      "input": {
+        "x": 12,
+        "y": 290,
+        "width": 296,
+        "height": 62,
+        "bottom": 352,
+        "right": 308
+      },
+      "start": {
+        "x": 61.109375,
+        "y": 154.8125,
+        "width": 147.765625,
+        "height": 44,
+        "bottom": 198.8125,
+        "right": 208.875
+      },
+      "transcriptScroll": true,
+      "transcriptHeight": 71,
+      "pass": true,
+      "planCount": 3,
+      "taskVisible": true,
+      "taskClosed": true,
+      "options": {
+        "x": 8,
+        "y": 25.625,
+        "width": 304,
+        "height": 115.1875
+      },
+      "optionsClosed": true,
+      "optionsClickAway": true,
+      "finishButton": {
+        "x": 27,
+        "y": 293,
+        "width": 266,
+        "height": 40
+      },
+      "draftRestored": true
+    }
+  ],
+  "text_viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "documentHeight": 900,
+      "documentWidth": 1440,
+      "inputBottom": 830,
+      "inputTop": 701,
+      "pass": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "documentHeight": 844,
+      "documentWidth": 390,
+      "inputBottom": 796,
+      "inputTop": 675.21875,
+      "pass": true
+    }
+  ],
+  "browser_errors": [],
+  "unexpected_writes": [],
+  "external_requests": [],
+  "long_plan": true,
+  "passed": true
+}

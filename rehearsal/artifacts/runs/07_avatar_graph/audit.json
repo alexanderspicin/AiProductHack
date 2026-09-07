@@ -1,0 +1,28 @@
+{
+  "goal": "Write and test a complete offline GPU graphics bake with independent local CPU reuse",
+  "algorithm_status": "verified",
+  "checks": [
+    {"requirement": "Actual graphics generation on authorized personal GPU", "passed": true, "evidence": "bake_metrics.json: H100, strict checkpoint load, 6400 atlas plus 474 reference frames"},
+    {"requirement": "Portable graphical package, states, pose mapping and coverage", "passed": true, "evidence": "Private package includes manifest, 100 PNG atlases, 100 base frames, small audio ONNX and standalone CPU source; about 107 MB"},
+    {"requirement": "Runtime without live neural image generation", "passed": true, "evidence": "Isolated environment without torch/cv2; runtime.py only image lookup/compositing; audio ONNX explicitly CPUExecutionProvider"},
+    {"requirement": "New speech not used to build the atlas", "passed": true, "evidence": "metrics.json: three held-out Russian phrases; browser additionally used a new custom phrase"},
+    {"requirement": "Temporal sequence, moving head and silence", "passed": true, "evidence": "Receding-horizon state graph, pose-conditioned atlas, ping-pong body path, explicit neutral override; 9 unit tests"},
+    {"requirement": "Interruption and stale completion protection", "passed": true, "evidence": "browser_metrics.json: stop active and preparing audio, no stale restart, next phrase works, idle body continues"},
+    {"requirement": "Measured quality loss, speed, memory, disk", "passed": true, "evidence": "metrics.json, isolated_cpu.metrics.json, browser_metrics.json; isolated peak RSS 183156736 bytes"},
+    {"requirement": "Runnable manual test, tests and reproduction", "passed": true, "evidence": "lab.py on loopback 8897; README.md, REPRODUCE.md, portable CLI package"}
+  ],
+  "not_claimed": [
+    "Human-level realism or absence of uncanny valley",
+    "Proven correct Russian phoneme articulation by the upstream audio driver",
+    "Unrestricted arbitrary poses, emotion or infinite unique body motion",
+    "End-to-end microphone/VAD-to-acoustic-stop latency",
+    "Streaming TTS integration with the production Pipecat trainer",
+    "Commercial clearance for the demonstration identity or model weights"
+  ],
+  "human_quality_acceptance": "pending",
+  "original_pipecat_modified": false,
+  "external_paid_api_calls": 0,
+  "cluster_resources_scaled_or_created": false,
+  "gpu_workload_finished": true,
+  "public_upload_performed": false
+}

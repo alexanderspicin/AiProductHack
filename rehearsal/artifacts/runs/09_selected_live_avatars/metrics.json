@@ -1,0 +1,23 @@
+{
+  "status":"integration_verified_human_acceptance_pending",
+  "decision":"keep_integration_with_explicit_audio_fallback",
+  "live_microphone_acceptance":false,
+  "physical_microphone_to_mute_ms":null,
+  "target_300ms_microphone_proven":false,
+  "target_2500ms_video_response_met":false,
+  "tavus_typed_to_remote_audio_ms":[4095,5322,5063],
+  "anam_typed_to_remote_audio_ms":[4341],
+  "video_connect_ms":{"tavus":5044,"anam":2038},
+  "synthetic_input_to_server_interrupt_ms":580,
+  "interrupt_preceded_first_transcript_by_ms":1310,
+  "synthetic_last_turn_stop_to_generated_pcm_ms":1374,
+  "text_fallback_response_ms":1873,
+  "report":{"status":"ready","source":"llm","turns":3,"criteria":5,"quotes_visible":true},
+  "video_trials":{"tavus":2,"anam":1},
+  "additional_synthetic_audio_only_trials":1,
+  "purchases_rub":0,
+  "quotas_after":{"cartesia_credits_remaining":18702,"tavus_minutes_used_display":3.3,"tavus_minutes_total":20,"anam_minutes_used_display":2,"anam_minutes_total":30},
+  "quota_display_precision_warning":"Provider UI values may be rounded or delayed",
+  "local_llm_ledger_snapshot":{"total_tokens":17766,"measured_requests":13,"unmeasured_requests":3,"estimated_usd":0.00359751,"includes_prior_activity":true,"exact_invoice":false},
+  "limitations":["Very small synthetic sample; not p95", "Browser callback mute tested separately from synthetic server input", "No physical microphone acceptance or new human lip-sync rating", "Video latency target not achieved"]
+}

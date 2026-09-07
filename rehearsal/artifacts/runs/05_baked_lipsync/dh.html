@@ -1,0 +1,19 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><base href="/data/vendor/dh/">
+<title>DH Live local experiment</title>
+<style>body{margin:0;background:#16241b;overflow:hidden}#background_video,#canvas_video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}#canvas_gl,#canvasEl,#screen{position:absolute;left:-9999px}#loadingSpinner,#startMessage{color:white;font:16px system-ui;padding:20px}</style>
+<figure id="loadingSpinner">Загружаю DH Live…</figure><canvas id="canvasEl"></canvas>
+<video id="background_video" muted playsinline loop></video><canvas id="canvas_video"></canvas><canvas id="canvas_gl" width="184" height="184"></canvas><div id="screen"></div><div id="screen2" hidden></div><div id="startMessage">Подготовка видео</div>
+<script src="js/pako.min.js"></script><script src="js/DHLiveMini.js"></script><script src="js/MiniMateLoader.js"></script><script src="js/MiniLive2.js"></script>
+<script>
+// Wrapper only: upstream WASM, renderer and demo assets remain untouched.
+let labContext,labSource,labSpeaking=false,labActive=false,labSequence=0;const labDraw=[],labWasm=[];
+const originalProcess=processDataSet;
+processDataSet=function(...args){const t=performance.now();const r=originalProcess(...args);if(labSpeaking)labDraw.push({time:t,ms:performance.now()-t});return r};
+const readyTimer=setInterval(()=>{if(typeof bsPtr==='number'&&Module?._clearAudio){clearInterval(readyTimer);const orig=Module._processImage;Module._processImage=(...a)=>{const t=performance.now();const result=orig(...a);if(labSpeaking)labWasm.push(performance.now()-t);return result};window.labDH.setActive(labActive)}},100);
+window.labDH={get ready(){return typeof bsPtr==='number'&&!!Module?._clearAudio},get speaking(){return labSpeaking},get frames(){return labDraw},get wasmMs(){return labWasm},get renderer(){const c=document.getElementById('canvas_gl').getContext('webgl2');const e=c?.getExtension('WEBGL_debug_renderer_info');return e?c.getParameter(e.UNMASKED_RENDERER_WEBGL):'unavailable'},
+setActive(value){labActive=value;if(!this.ready)return;const wasPaused=isPaused;isPaused=!value;if(value){videoProcessor.play();document.getElementById('background_video').play().catch(()=>{});if(wasPaused)requestAnimationFrame(processVideoFrames)}else{videoProcessor.pause();document.getElementById('background_video').pause()}},
+stop(){labSequence++;if(labSource){labSource.onended=null;try{labSource.stop();labSource.disconnect()}catch{}labSource=null}if(this.ready)Module._clearAudio();labSpeaking=false},
+async play(wav){this.stop();const sequence=labSequence;labContext ||= new AudioContext();await labContext.resume();const audio=await labContext.decodeAudioData(wav.slice(0));if(sequence!==labSequence)return;const ptr=Module._malloc(wav.byteLength);try{Module.HEAPU8.set(new Uint8Array(wav),ptr);const t=performance.now();Module._setAudioBuffer(ptr,wav.byteLength);this.lastAudioPrepMs=performance.now()-t}finally{Module._free(ptr)}labSource=labContext.createBufferSource();labSource.buffer=audio;labSource.connect(labContext.destination);labSource.onended=()=>{if(sequence===labSequence){labSpeaking=false;labSource=null;Module._clearAudio()}};labDraw.length=0;labWasm.length=0;labSpeaking=true;labSource.start();},
+};
+window.addEventListener('pagehide',()=>window.labDH.stop());
+</script></html>

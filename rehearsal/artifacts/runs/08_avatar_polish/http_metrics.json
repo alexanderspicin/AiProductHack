@@ -1,0 +1,18 @@
+{
+  "head": true,
+  "range_both_formats": true,
+  "unsatisfiable_range": true,
+  "legacy_link_redirect": true,
+  "path_whitelist": true,
+  "cross_origin_rejected": true,
+  "invalid_audio_rejected": true,
+  "valid_mono_wav": true,
+  "mono_wall_s": 0.06842887500033612,
+  "mono_prepare_s": 0.0663589169998886,
+  "mono_frames": 145,
+  "valid_stereo_wav": true,
+  "duration_guard": true,
+  "local_tts_non_silent": true,
+  "local_tts_prepare_s": 1.034571541999867,
+  "paid_calls": 0
+}

@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-07",
+  "mode": "TASK2_AI",
+  "hypothesis": "A prepared portrait atlas and local Russian TTS can demonstrate arbitrary new speech without external services or runtime image generation.",
+  "baseline": "run 07/08 atlas player using proprietary macOS Milena",
+  "change": "Separate defense UI; local Piper Dmitri and Silero v5.5 Eugene",
+  "primary_check": "New typed Russian text produces non-silent audio and clocked mouth states without outbound requests",
+  "guardrails": ["Stop playback and reject late responses", "No changes to main trainer", "No paid calls", "Label unverified perceptual quality and license restrictions"],
+  "dataset": "Three fixed Russian defense phrases plus a new typed phrase; no training or split",
+  "seed": null,
+  "time_budget_minutes": 60,
+  "api_budget_rub": 0,
+  "stop_rule": "Functional local demo, smoke tests, defense guide; no new image-model training"
+}

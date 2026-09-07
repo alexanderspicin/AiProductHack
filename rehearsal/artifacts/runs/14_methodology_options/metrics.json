@@ -1,0 +1,10 @@
+{
+  "status": "awaiting_user_choice",
+  "application_changed": false,
+  "alternatives": 3,
+  "recommended_alternative": "soft_internal_stages",
+  "external_api_calls": 0,
+  "api_cost_rub": 0,
+  "learning_effectiveness_measured": false,
+  "latency_measured": false
+}

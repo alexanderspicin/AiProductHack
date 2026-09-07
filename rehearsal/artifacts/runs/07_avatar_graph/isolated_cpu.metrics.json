@@ -1,0 +1,15 @@
+{
+  "outside_coverage_fraction": 0.0,
+  "mean_control_error": 1.3349584341049194,
+  "silence_frames": 33,
+  "selector_s": 0.0031471250113099813,
+  "audio_driver": {
+    "seconds": 0.010594625025987625,
+    "duration_s": 6.8086875
+  },
+  "frames": 171,
+  "total_with_encoding_s": 3.10536545899231,
+  "compose_ms_median": 17.706167069263756,
+  "compose_ms_p95": 24.09670897759497,
+  "compose_ms_max": 30.731249949894845
+}

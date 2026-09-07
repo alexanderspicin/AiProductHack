@@ -1,0 +1,100 @@
+{
+  "errors": [],
+  "dialogs": [],
+  "blocked_external_requests": [],
+  "browser": "151.0.7922.34",
+  "variants": [
+    {
+      "variant": "energy",
+      "frame_count": 400,
+      "observed_fps": 119.10092236052655,
+      "draw_median_ms": 0.10000002384185791,
+      "draw_p95_ms": 0.20000004768371582,
+      "wasm_median_ms": null,
+      "renderer": "Canvas2D; acceleration unspecified",
+      "interruption": {
+        "handler_ms": 0.19999992847442627,
+        "active_sources": 0,
+        "speaking": false,
+        "mouth": [
+          0,
+          0.3,
+          0.2
+        ]
+      },
+      "after_300ms": {
+        "speaking": false,
+        "active_sources": 0,
+        "mouth": [
+          0,
+          0.3,
+          0.2
+        ]
+      }
+    },
+    {
+      "variant": "model",
+      "frame_count": 393,
+      "observed_fps": 119.99877552269872,
+      "draw_median_ms": 0.10000002384185791,
+      "draw_p95_ms": 0.19999992847442627,
+      "wasm_median_ms": null,
+      "renderer": "Canvas2D; acceleration unspecified",
+      "interruption": {
+        "handler_ms": 0.2999999523162842,
+        "active_sources": 0,
+        "speaking": false,
+        "mouth": [
+          0,
+          0.3,
+          0.2
+        ]
+      },
+      "after_300ms": {
+        "speaking": false,
+        "active_sources": 0,
+        "mouth": [
+          0,
+          0.3,
+          0.2
+        ]
+      }
+    },
+    {
+      "variant": "neural",
+      "frame_count": 84,
+      "observed_fps": 25.017331284259992,
+      "draw_median_ms": 9.600000023841858,
+      "draw_p95_ms": 10.899999976158142,
+      "wasm_median_ms": 6.100000023841858,
+      "audio_prep_ms": 2.9000000953674316,
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+      "interruption": {
+        "handler_ms": 0.10000002384185791,
+        "active_sources": 0,
+        "speaking": false,
+        "mouth": [
+          0,
+          0.3,
+          0.2
+        ]
+      },
+      "after_300ms": {
+        "speaking": false,
+        "active_sources": 0,
+        "mouth": [
+          0,
+          0.3,
+          0.2
+        ]
+      }
+    }
+  ],
+  "unseen_text_status": "Речь 4.6 с. CPU-анализ: 664 мс; синтез: 1484 мс.",
+  "cancel_during_prepare": {
+    "speaking": false,
+    "sources": 0,
+    "status": "Прервано. Звук и очередь движений очищены."
+  },
+  "mobile_no_overflow": true
+}

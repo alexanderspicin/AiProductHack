@@ -1,0 +1,10 @@
+{
+  "mode": "TASK2_PRODUCT",
+  "deadline": null,
+  "timebox_minutes": 15,
+  "scope": "Read-only diagnosis and minimal-change proposal; no application edits or API evaluation",
+  "hypothesis": "Spoken stage-management instructions and ambiguous hidden-fact rules encourage coaching; a short public brief is needed at the moment the conversation starts.",
+  "sources": ["backend/text_app/agent.py", "backend/text_app/voice_training.py", "backend/text_app/models.py", "backend/text_app/seeds.py", "frontend/src/text/ScenarioOverview.tsx", "frontend/src/text/Conversation.tsx", "frontend/src/voice/SelectedVoiceTools.tsx"],
+  "planned_acceptance": ["answer the latest utterance in character", "do not coach or quote evaluation criteria", "reveal character facts when their scenario condition is met", "set a boundary on insults", "resume naturally after apology", "preserve persona gender", "show participant role, other party, known events and goal before start", "keep private facts out of the public brief"],
+  "api_calls_planned": 0
+}

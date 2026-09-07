@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-06", "mode": "TASK2_AI", "deadline": null,
+  "timebox_minutes": 120,
+  "question": "Can the two user-selected Cartesia/Tavus and Cartesia/Anam pairs run the existing training with prompt interruptions and preserved reports?",
+  "independent_assessment": "Recorded quality is established by the user; microphone latency, lifecycle cleanup and preserving training context still need verification. Reuse existing server VAD, Smart Turn and training agent, replace TTS and presentation through adapters.",
+  "hypothesis": "Streaming Cartesia audio to the chosen avatar can retain the existing training logic; local presentation must stop on server VAD before transcription.",
+  "baseline": "Existing Pipecat training with Inworld and local GLB; six recorded comparisons remain untouched",
+  "selected_profiles": ["tavus_sergei", "anam_tatiana"],
+  "acceptance": ["Methodist can select either profile for new sessions", "Existing sessions retain their profile", "Real generated text and streaming speech use the same scenario context", "Speech-start stops local playback and provider queue before transcript", "Late chunks and duplicate starts do not reopen cancelled speech", "Disconnect, timeout and end close provider sessions", "Text fallback and evidence-backed report work", "Secrets remain server-side"],
+  "primary_metric": "Microphone speech-start to inaudible avatar audio; goal <= 300 ms",
+  "guardrails": ["End of user turn to first audible response target <= 2500 ms after warm-up", "No autonomous paid upgrades", "No automatic generation retries", "No double playback or avatar camera/microphone publishing"],
+  "data_split": "Not applicable; fixed synthetic Russian phrases for automated tests, human acceptance separately",
+  "paid_voice_video_budget_rub": 0,
+  "text_api_authorized": true,
+  "max_live_sessions_per_selected_provider": 2,
+  "max_live_session_seconds": 90,
+  "stop_condition": "Stop a probe on unclear quota, duplicate session or failed cleanup. Do not report live acceptance from mocked tests."
+}

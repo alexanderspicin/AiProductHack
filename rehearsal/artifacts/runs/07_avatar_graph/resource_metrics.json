@@ -1,0 +1,23 @@
+{
+  "cpu_device": "Apple M3 Pro",
+  "isolated_command": "python runtime.py --package package --wav new_training.wav --out isolated_cpu.mp4",
+  "environment_has_torch": false,
+  "environment_has_opencv": false,
+  "audio_inference_provider": "CPUExecutionProvider",
+  "process_wall_s": 4.33,
+  "process_user_s": 4.11,
+  "process_sys_s": 0.44,
+  "process_peak_rss_bytes": 183156736,
+  "process_peak_memory_footprint_bytes": 142377632,
+  "swaps": 0,
+  "measurement_source": "/usr/bin/time -l, macOS; process includes local ffmpeg child",
+  "post_run_gpu_memory_used_mib": 0,
+  "post_run_gpu_utilization_percent": 0,
+  "portable_package_runtime_verification": {
+    "frames": 158,
+    "speech_duration_s": 6.30675,
+    "render_and_encode_s": 3.1002588749397546,
+    "compose_ms_p95": 23.351397406077012,
+    "outcome": "completed"
+  }
+}

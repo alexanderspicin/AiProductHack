@@ -1,0 +1,8 @@
+{
+  "backend_tests_passed": 49,
+  "frontend_tests_passed": 13,
+  "paid_requests": 0,
+  "known_calculation_example_usd": 0.000373,
+  "calculation_example": "1000 input (400 cached, 100 cache write) + 200 output tokens on gpt-5.6-luna",
+  "decision": "keep"
+}

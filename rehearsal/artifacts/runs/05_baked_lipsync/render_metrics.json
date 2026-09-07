@@ -1,0 +1,29 @@
+{
+  "dimensions": [
+    416,
+    608
+  ],
+  "fps": 30,
+  "render": "Pillow CPU",
+  "encode": "libx264 CPU, 2 threads",
+  "variants": [
+    {
+      "variant": "energy",
+      "frames": 186,
+      "compose_median_ms": 0.5695209838449955,
+      "compose_p95_ms": 1.2792912020813674,
+      "compose_encode_total_s": 0.5677168329712003,
+      "end_to_end_render_fps": 327.6281223273779,
+      "output_bytes": 133463
+    },
+    {
+      "variant": "model",
+      "frames": 186,
+      "compose_median_ms": 0.5948959733359516,
+      "compose_p95_ms": 1.2898235290776938,
+      "compose_encode_total_s": 0.4127482500625774,
+      "end_to_end_render_fps": 450.6378887658524,
+      "output_bytes": 132363
+    }
+  ]
+}

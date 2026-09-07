@@ -1,0 +1,27 @@
+{
+  "decision": "keep",
+  "first_attempt": {"real_text_requests": 6, "exact_expected": 5, "self_gender_mismatches": 1},
+  "final_attempt": {
+    "real_text_requests": 6,
+    "exact_expected": 6,
+    "self_gender_mismatches": 0,
+    "unchanged_source_scenarios": 6,
+    "same_voice_history_and_chat": 6,
+    "cache_reuse_without_request": 6,
+    "initial_prepare_ms_min": 1136,
+    "initial_prepare_ms_max": 1684,
+    "cached_start_ms_min": 1,
+    "cached_start_ms_max": 3
+  },
+  "total_real_text_requests": 12,
+  "total_tokens": 5229,
+  "estimated_cost_usd": 0.0016758,
+  "unpriced_requests": 0,
+  "voice_video_calls": 0,
+  "pytest_passed": 108,
+  "pytest_failed": 0,
+  "pytest_seconds": 2.96,
+  "frontend_tests_passed": 21,
+  "frontend_build": "passed",
+  "limitations": ["six final fixed cases, not a statistical guarantee for arbitrary Russian text", "TTS frame checked without paid synthesis or video", "existing sessions retain their historical opening"]
+}

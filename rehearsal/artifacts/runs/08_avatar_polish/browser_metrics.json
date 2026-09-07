@@ -1,0 +1,20 @@
+{
+  "surface": "actual Codex in-app browser, CUA",
+  "comparison_before": "native MP4 remained black despite a decodable local file",
+  "comparison_after": "HTML player with WebM displayed three moving faces and reached 6.9/6.9 seconds",
+  "comparison_visual_check": true,
+  "head_body_controls": true,
+  "calm_idle_fps_observed": 30.0,
+  "calm_speaking_fps_observed": 30.0,
+  "long_speech_duration_s": 33.5,
+  "long_speech_prepare_s": 0.77,
+  "interrupt_active_speech": true,
+  "neutral_mouth_after_stop": 0,
+  "wav_upload_via_file_chooser": true,
+  "uploaded_wav_duration_s": 6.3,
+  "uploaded_wav_prepare_s": 0.08,
+  "original_mode_switch": true,
+  "body_disable_data_attribute": false,
+  "final_mode": "calm with body motion",
+  "limitations": ["FPS read from displayed counters, not a long benchmark", "No measured acoustic stop latency", "No microphone VAD in this lab", "No human comparison of two TTS providers", "No claim of CPU-only browser rasterization; standalone CPU renderer checked separately"]
+}

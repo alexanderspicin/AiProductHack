@@ -1,0 +1,111 @@
+{
+  "new_training": {
+    "nearest": {
+      "mouth_mae_0_255": 4.4403839111328125,
+      "mouth_psnr_db": 28.38903320825674,
+      "temporal_delta_mae_0_255": 5.360438823699951
+    },
+    "temporal_graph": {
+      "mouth_mae_0_255": 4.383028984069824,
+      "mouth_psnr_db": 28.488981294738196,
+      "temporal_delta_mae_0_255": 4.9116644859313965
+    },
+    "neutral_only": {
+      "mouth_mae_0_255": 7.602382659912109,
+      "mouth_psnr_db": 24.728265588071384,
+      "temporal_delta_mae_0_255": 5.519552230834961
+    },
+    "coverage": {
+      "outside_coverage_fraction": 0.0,
+      "mean_control_error": 1.3349584341049194,
+      "silence_frames": 33
+    },
+    "audio_driver": {
+      "seconds": 0.011854791082441807,
+      "duration_s": 6.8086875
+    },
+    "selector_s": 0.0019846250070258975,
+    "render": {
+      "frames": 171,
+      "total_with_encoding_s": 3.0146925000008196,
+      "compose_ms_median": 16.76458294969052,
+      "compose_ms_p95": 21.621249965392053,
+      "compose_ms_max": 26.84962493367493
+    }
+  },
+  "new_closures": {
+    "nearest": {
+      "mouth_mae_0_255": 4.0801615715026855,
+      "mouth_psnr_db": 29.17606565479502,
+      "temporal_delta_mae_0_255": 5.416884899139404
+    },
+    "temporal_graph": {
+      "mouth_mae_0_255": 4.162428379058838,
+      "mouth_psnr_db": 29.09004720106266,
+      "temporal_delta_mae_0_255": 5.062440395355225
+    },
+    "neutral_only": {
+      "mouth_mae_0_255": 8.647134780883789,
+      "mouth_psnr_db": 23.973821356394012,
+      "temporal_delta_mae_0_255": 5.565551280975342
+    },
+    "coverage": {
+      "outside_coverage_fraction": 0.006896551724137931,
+      "mean_control_error": 1.3429527282714844,
+      "silence_frames": 22
+    },
+    "audio_driver": {
+      "seconds": 0.013758125016465783,
+      "duration_s": 5.7951875
+    },
+    "selector_s": 0.0015572080155834556,
+    "render": {
+      "frames": 145,
+      "total_with_encoding_s": 2.369160083006136,
+      "compose_ms_median": 16.4036659989506,
+      "compose_ms_p95": 17.725659045390785,
+      "compose_ms_max": 20.342250005342066
+    }
+  },
+  "new_rounding": {
+    "nearest": {
+      "mouth_mae_0_255": 4.118220329284668,
+      "mouth_psnr_db": 29.28657337715949,
+      "temporal_delta_mae_0_255": 4.889657497406006
+    },
+    "temporal_graph": {
+      "mouth_mae_0_255": 4.0570573806762695,
+      "mouth_psnr_db": 29.36443321501112,
+      "temporal_delta_mae_0_255": 4.587308883666992
+    },
+    "neutral_only": {
+      "mouth_mae_0_255": 8.723682403564453,
+      "mouth_psnr_db": 24.05589845241942,
+      "temporal_delta_mae_0_255": 4.444435119628906
+    },
+    "coverage": {
+      "outside_coverage_fraction": 0.0,
+      "mean_control_error": 1.2366050481796265,
+      "silence_frames": 22
+    },
+    "audio_driver": {
+      "seconds": 0.01086808298714459,
+      "duration_s": 6.30675
+    },
+    "selector_s": 0.0016614999622106552,
+    "render": {
+      "frames": 158,
+      "total_with_encoding_s": 2.7049865829758346,
+      "compose_ms_median": 16.871500061824918,
+      "compose_ms_p95": 19.674054585630074,
+      "compose_ms_max": 25.451541994698346
+    }
+  },
+  "resources": {
+    "package_mb": 106.540295,
+    "runtime_peak_rss_mb": 246.00576,
+    "tile_decode_ms_median": 15.742916497401893,
+    "tile_decode_ms_p95": 21.17969411192462,
+    "memory_note": "Mac ru_maxrss bytes; includes evaluation arrays and reference video, not isolated player"
+  }
+}

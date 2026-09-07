@@ -1,0 +1,7 @@
+{
+  "paid_purchases_rub": 0,
+  "tavus_first": {"state":"failed_after_greeting","video_size":[1280,720],"stop_muted_and_paused":true,"cause":"Missing NLTK punkt_tab, fixed"},
+  "anam_first": {"state":"passed_one_live_text_turn","session_id":"1040babf-9ebc-4ee8-8f23-97e8dd6c9215","video_size":[1152,768],"stop_muted_and_paused":true,"video_connect_ms":2038,"typed_send_to_remote_audio_ms":4341,"stage_advanced":true,"transcript_saved":true},
+  "tavus_second": {"state":"passed_three_live_text_turns","max_seconds":90,"session_id":"e0f150e1-322f-417b-9d83-7e8e97a9c3dc","stop_muted_and_paused":true,"new_reply_after_manual_stop":true,"typed_send_to_remote_audio_ms":[4095,5322,5063],"automatic_timeout_closed_media":true,"report_ready":true},
+  "limitations": ["Latency is one warm typed turn, not speech end-to-end or p95", "No user microphone captured by assistant", "Tavus second is the last planned Tavus trial"]
+}

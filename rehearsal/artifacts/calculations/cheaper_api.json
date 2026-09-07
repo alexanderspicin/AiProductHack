@@ -1,0 +1,37 @@
+{
+  "as_of": "2026-09-07",
+  "baseline": "defense_api_gpu.json",
+  "assumptions": "Reuse the same 100 sessions/month, 5/10/15-minute scenarios, 50% bot speech, 750 characters/spoken minute, LLM tokens and 100 RUB/USD planning rate. No free trials, annual discount or caches.",
+  "liveavatar": {
+    "mode": "LITE / Avatar Only, own LLM and TTS",
+    "credits_per_connected_minute": 1,
+    "source": "https://www.liveavatar.com/",
+    "mode_and_limits_source": "https://help.heygen.com/en/articles/10035615-how-to-get-started-with-liveavatar",
+    "billing_source": "https://docs.liveavatar.com/docs/faq/credits",
+    "plans": [
+      {"name": "Starter", "monthly_usd": 19, "minutes_included": 200, "overage_usd_min": 0.10, "session_limit_minutes": 5},
+      {"name": "Essential", "monthly_usd": 99, "minutes_included": 1100, "overage_usd_min": 0.095, "session_limit_minutes": 20},
+      {"name": "Business", "monthly_usd": 475, "minutes_included": 6000, "overage_usd_min": 0.09, "session_limit_minutes": 60}
+    ],
+    "confidence": "Official homepage and HeyGen Help agree. Older docs subscription table differs, so use docs only for metering/mode. Confirm checkout before purchase.",
+    "note": "Starter is ineligible for a 10-minute uninterrupted session. Model session minutes include silence; real partial-minute rounding can add cost. WebRTC transport/own server not priced here."
+  },
+  "inworld": {
+    "plan": "On-Demand",
+    "monthly_usd": 0,
+    "tts2_usd_million_chars": 25,
+    "tts2_flash_usd_million_chars": 15,
+    "source": "https://inworld.ai/pricing",
+    "confidence": "Official pricing, commercial use listed; free promotional credits excluded",
+    "note": "No Enterprise $5/M rate assumed. Monthly Creator fee is not economical at the modeled speech volume. Flash voice quality not established by the user's prior TTS-2 evaluation."
+  },
+  "cartesia": {
+    "use_baseline_plan": true,
+    "source": "https://www.cartesia.ai/pricing",
+    "note": "Startup $49 with 1.25M credits is a conservative confirmed plan, not the optimized minimum. Pro $5/100K is insufficient alone; $65/M overage found only in third-party pages, excluded until officially confirmed."
+  },
+  "simli": {"monthly_usd": null, "overage_usd_min": null, "source": "https://www.simli.com/", "note": "Paid tariff not verified. Do not present an assumed price. Previous Russian lip-sync concerns require a fresh controlled test."},
+  "quality_evidence": "User qualitative feedback in conversation, not controlled benchmark. Cartesia+Tavus excellent; Cartesia+LiveAvatar acceptable with somewhat robotic expression; Inworld less pleasant. No new paid speech/video requests.",
+  "exclusions": ["CPU hosting and ASR", "WebRTC transport if separately billed", "tax, payment fees and real FX spread", "methodist time", "development, integration and maintenance", "avatar creation and rights", "extra idle time and retries", "SLA capacity"],
+  "readiness": "The app currently caps connected voice at 3 minutes. Modeled longer training requires code/config changes and acceptance tests; none performed here."
+}

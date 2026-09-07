@@ -1,0 +1,15 @@
+{
+  "mode": "TASK2_AI",
+  "deadline": null,
+  "timebox_minutes": 35,
+  "hypothesis": "Adapting the initial greeting once before saving a selected-avatar session removes the deterministic gender mismatch across chat, LLM history and TTS.",
+  "baseline": "runs/10_avatar_gender: Tatiana/feedback starts with masculine отправил",
+  "primary_metric": "incorrect self-gender in prepared openings",
+  "acceptance": "zero mismatches in fixed cases for both selected profiles; third-person gender and quotations preserved",
+  "guardrails": ["source scenario unchanged", "old sessions unchanged", "same greeting in all consumers", "no incorrect greeting on API failure", "idempotent successful start", "usage counted"],
+  "fixtures": ["feedback", "first-person actions with colleagues and quotations", "neutral greeting"],
+  "max_real_text_requests": 12,
+  "amendment": "First six real requests found one unchanged masculine self-reference for Tatiana/feedback. Clarify editor target identity and add inflection examples; repeat the same six cases once. Preserve v1 results.",
+  "voice_video_calls": 0,
+  "stop": "regressions pass, bounded live text probes evaluated, local server updated"
+}

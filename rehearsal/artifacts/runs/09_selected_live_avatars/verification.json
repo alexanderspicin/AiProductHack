@@ -1,0 +1,12 @@
+{
+  "python_tests": {"passed":91,"failed":0,"duration_seconds":2.53,"warnings":24,"native_macos":true},
+  "frontend_tests": {"passed":20,"failed":0,"files":7},
+  "production_build":"passed",
+  "build_warning":"Large lazy-loaded legacy 3D chunk, 623.95 kB uncompressed",
+  "diff_whitespace_check":"passed",
+  "new_files_common_secret_and_home_path_scan":"no_matches",
+  "human_lipsync_acceptance":"pending",
+  "physical_microphone_acceptance":"pending",
+  "runtime":{"frontend":"http://127.0.0.1:5176/","backend":"http://127.0.0.1:8003/","max_voice_connection_seconds":180,"default_profile":"tavus_sergei","api_keys_configured":true},
+  "git_published":false
+}

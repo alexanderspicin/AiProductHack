@@ -1,0 +1,17 @@
+{
+  "mode":"TASK2_AI",
+  "deadline":null,
+  "timebox_minutes":20,
+  "question":"Do both avatar profiles consistently refer to themselves in the correct Russian grammatical gender?",
+  "independent_assessment":"A gender instruction exists, but initial scripted speech bypasses LLM and saved assistant history may contain conflicting gender. Other people and quoted words must not be treated as avatar self-reference.",
+  "baseline":"Current application, no product source changes in this audit",
+  "profiles":["tavus_sergei","anam_tatiana"],
+  "checks":["All three seed openings for both profiles", "Real generated first-person verbs and adjectives", "Recovery after wrong-gender assistant history", "Preserve female/male third-person descriptions"],
+  "model":"gpt-5.6-luna",
+  "max_text_requests":12,
+  "voice_video_requests":0,
+  "metric":"Manual count of avatar self-reference gender mismatches; neutral responses are inconclusive, not passes",
+  "minimum_useful_result":"Reproduce an exact failing path or collect actual consistent generated forms",
+  "split":"Fixed synthetic examples; not a statistical reliability estimate",
+  "stop_condition":"No automatic retry, stop on credentials or quota error; do not change runtime settings or sessions"
+}

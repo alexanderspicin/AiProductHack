@@ -1,0 +1,23 @@
+{
+  "checked_on": "2026-09-05",
+  "backend_tests_passed": 81,
+  "frontend_tests_passed": 15,
+  "production_build": "passed",
+  "decision": "keep_integration_live_inworld_pending",
+  "server_models": {
+    "vad": "SileroVADAnalyzer",
+    "smart_turn": "LocalSmartTurnAnalyzerV3",
+    "smart_turn_result": "INCOMPLETE",
+    "smart_turn_ms": 60,
+    "stt": "WhisperSTTService / faster-whisper small CPU int8",
+    "audio_ms": 2990,
+    "stt_ms": 1222,
+    "initial_model_load_ms": 33961,
+    "transcript": "Добрый день. Давайте обсудим вашу задачу."
+  },
+  "openai_smoke": {"model": "gpt-5.6-luna", "first_token_ms": 3793, "total_ms": 4053, "input_tokens": 23, "output_tokens": 9, "total_tokens": 32, "reasoning_tokens": 0},
+  "inworld_requests": 0,
+  "live_microphone_inworld_acceptance": "not_run_no_key",
+  "visual_smoke": "avatar, chat, Pipecat connection button, disabled-provider error verified",
+  "measurement_limit": "One synthetic Russian clip and one short API call; not latency percentiles or quality evaluation."
+}

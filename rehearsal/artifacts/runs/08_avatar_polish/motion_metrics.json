@@ -1,0 +1,12 @@
+{
+  "measurement": "deterministic pose-index trajectory, not physical head acceleration or a human rating",
+  "idle_speed": 0.22,
+  "speech_speed": 0.42,
+  "max_idle_pose_step_at_60fps": 0.1439894602259315,
+  "smooth_peak_second_difference": 0.0004188486568644234,
+  "legacy_peak_second_difference": 1,
+  "bounded_resume": true,
+  "single_pose": true,
+  "body_disable": true,
+  "correction_bounded": true
+}

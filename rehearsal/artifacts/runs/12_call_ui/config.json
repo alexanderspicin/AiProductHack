@@ -1,0 +1,11 @@
+{
+  "mode": "TASK2_AI",
+  "deadline": null,
+  "timebox_minutes": 60,
+  "hypothesis": "A viewport-bound video-call layout and a single start action keep video dominant and message input visible without making the learner choose pipeline modes.",
+  "baseline": "selected-voice has no explicit grid placement; video and controls displace transcript and composer",
+  "checks": ["desktop video wider than chat", "composer visible with long history", "phone and short landscape have no page overflow", "single start action", "mic toggles independently", "text and voice share same connection", "microphone denial can continue through text", "disconnect and finish stop media", "no automatic paid-media start"],
+  "viewports": [[1440,900],[1280,720],[1024,768],[390,844],[667,375],[320,640],[390,420],[320,360]],
+  "paid_media_calls_planned": 0,
+  "stop": "UI behavior, layout checks and regression suite pass; human live microphone quality remains separately labelled"
+}

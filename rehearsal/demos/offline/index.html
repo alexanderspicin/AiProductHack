@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Репетиция · Локальное демо</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="/demo.css">
+  <script type="module" src="/player.js"></script>
+</head>
+<body>
+<main>
+  <header><a class="brand" href="/">Репетиция<span>Технологии для защиты</span></a><span class="local">Работает на этом компьютере</span></header>
+  <section class="intro"><p class="eyebrow">Отдельный исследовательский прототип</p><h1>Новая фраза.<br>Без облака.</h1><p>Введите текст. Локальная модель создаст голос,<br class="wide-only"> а готовая библиотека лица оживит речь.</p></section>
+  <div class="workspace">
+    <section class="stage" aria-label="Локальный аватар">
+      <div class="stage-top"><span>AI-аватар</span><span id="stage-state">Загрузка</span></div>
+      <canvas id="avatar" width="360" height="540" aria-label="Исследовательский портрет, говорящий введённый текст"></canvas>
+      <div class="stage-bottom"><span>Демонстрационный персонаж DH Live</span><span>Не видеозвонок</span></div>
+    </section>
+    <section class="controls" aria-labelledby="input-heading">
+      <h2 id="input-heading">Дайте ему свою реплику</h2>
+      <p class="muted">Текст пишете вы. Здесь нет LLM, микрофона и распознавания речи.</p>
+      <label for="voice">Локальный голос</label>
+      <select id="voice"><option value="piper">Piper · Дмитрий</option><option value="silero">Silero · Евгений</option></select>
+      <p id="license" class="caption">Piper: GPL-3.0; датасет голоса: CC0.</p>
+      <div class="label-row"><label for="text">Что произнести</label><span id="count" class="caption">0 / 500</span></div>
+      <textarea id="text" maxlength="500" rows="5">Понимаю ваши сомнения. Я уже пробовал похожее решение, но результата не получил. Чем ваш подход отличается?</textarea>
+      <div class="examples" aria-label="Примеры для проверки"><button type="button" data-example="dialogue">Клиент</button><button type="button" data-example="lips">Губы: п, б, м</button><button type="button" data-example="intonation">Интонация</button></div>
+      <div class="actions"><button id="speak" class="primary" disabled>Произнести</button><button id="stop" class="secondary" disabled>Остановить</button></div>
+      <p id="status" role="status" aria-live="polite">Загружаю локальную библиотеку лица…</p>
+      <dl class="metrics"><div><dt>Подготовка</dt><dd id="latency">—</dd></div><div><dt>Длина речи</dt><dd id="duration">—</dd></div><div><dt>Внешние API</dt><dd>0 вызовов</dd></div></dl>
+      <p id="metrics-note" class="caption">Время появится после первого запуска. Это подготовка всей фразы, не задержка потокового диалога.</p>
+      <details><summary>Что проверяет кнопка «Остановить»?</summary><p>Выключает звук, возвращает рот в нейтральное состояние и не даёт запоздалому ответу начать воспроизведение. Если локальная модель ещё считает фразу, расчёт завершится в фоне. Перебивание голосом здесь не подключено.</p></details>
+    </section>
+  </div>
+  <section class="explain" aria-labelledby="how"><p class="eyebrow">Как это устроено</p><h2 id="how">Сложная графика готовится один раз</h2>
+    <ol class="steps"><li><span class="step-number">01</span><h3>Заранее готовим лицо</h3><p id="library-info">На GPU получаем библиотеку положений головы и форм рта. Во время демо GPU для генерации лица не нужен.</p></li><li><span class="step-number">02</span><h3>Считаем новую речь</h3><p>Piper или Silero создаёт звук на CPU. Небольшая ONNX-модель переводит его в последовательность состояний рта.</p></li><li><span class="step-number">03</span><h3>Собираем в браузере</h3><p>Выбираем готовые изображения по времени аудио. Новые слова не требуют заранее записывать все возможные фразы.</p></li></ol>
+    <p class="boundary">Цена упрощения: движения повторяются, эмоции ограничены, губы могут ошибаться. Это проверка автономного подхода, не замена Anam или Tavus по доказанному качеству.</p>
+  </section>
+  <section class="next" aria-labelledby="next-heading"><div><p class="eyebrow">Следующий шаг, пока не реализован здесь</p><h2 id="next-heading">Полностью автономный тренажёр</h2></div><p>Серверные Silero VAD и Smart Turn определяют начало и конец реплики. faster-whisper распознаёт её, локальная Qwen ведёт разговор по сценарию. Этот стенд отвечает только за звук и лицо.</p></section>
+  <footer><p>После установки моделей и подготовки лица интернет не нужен. Браузер загружает всё с локального сервера.</p><p>Лицо и веса из исследовательских материалов. Коммерческие права на образ не подтверждены. Silero v5.5 имеет некоммерческую лицензию.</p></footer>
+</main>
+</body>
+</html>

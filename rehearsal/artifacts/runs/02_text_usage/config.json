@@ -1,0 +1,9 @@
+{
+  "mode": "TASK2_AI",
+  "request": "Remove the text API request cap; show provider token usage and estimated costs",
+  "timebox_minutes": 45,
+  "acceptance": ["text requests exceed old cap", "usage survives restart", "cache/reasoning not double-counted", "missing usage is not zero cost", "old dialogues preserved"],
+  "test_data": "synthetic, isolated SQLite and mocked HTTP; optional short real text smoke",
+  "inworld_calls_authorized": false,
+  "price_date": "2026-09-04"
+}

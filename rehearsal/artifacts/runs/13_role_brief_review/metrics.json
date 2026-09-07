@@ -1,0 +1,15 @@
+{
+  "decision": "inconclusive",
+  "meaning": "Source-level causes identified; proposed behavior changes have not been implemented or evaluated",
+  "application_changed": false,
+  "llm_evaluation_performed": false,
+  "api_calls": 0,
+  "api_cost_rub": 0,
+  "observations": {
+    "both_prompts_already_disallow_coach_role": true,
+    "voice_prompt_includes_full_scenario_and_criteria": true,
+    "voice_prompt_blanket_bans_hidden_facts": true,
+    "feedback_scenario_conditionally_reveals_reason": true,
+    "in_call_brief_hidden_by_default": true
+  }
+}

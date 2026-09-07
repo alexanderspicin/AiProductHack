@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-05",
+  "mode": "TASK2_AI",
+  "question": "Can a precomputed avatar support convincing arbitrary Russian speech on a Mac without live server GPU inference?",
+  "hypotheses": ["Mouth sprite retrieval is fast on CPU but has limited coarticulation and head motion", "A compact neural mouth renderer over preprocessed video offers a better quality-resource tradeoff"],
+  "baseline": "Frozen current Pipecat project; isolated experiments only",
+  "inputs": "Public synthetic/licensed demo avatar and local synthetic Russian audio; no personal face without consent",
+  "primary": "Human judgement of mouth timing and transition artifacts, not a fabricated score",
+  "guardrails": ["CPU inference runtime versus audio duration", "Do not confuse integrated graphics with CPU-only", "No fake frames after interruption", "No API expenditure beyond agreed cap"],
+  "test_split": "Same held-out Russian phrases across variants; no training or prompt tuning on final phrases",
+  "time_budget_minutes": 90,
+  "stop_rule": "One retrieval baseline and one feasible lightweight implementation; stop setup paths needing absent authority or unresolved asset license",
+  "external_api_cap_rub": 100,
+  "gpu": "Read-only check found own StatefulSet scaled to zero; activation approval requested"
+}

@@ -1,0 +1,32 @@
+{
+  "seed": 42,
+  "external_calls": 0,
+  "input": "existing_synthetic_ru_16k",
+  "results": [
+    {
+      "confidence": 0.7,
+      "start_secs": 0.1,
+      "min_volume": 0.6,
+      "synthetic_ru_first_speaking_ms": 608,
+      "silence_first_speaking_ms": null,
+      "quiet_noise_first_speaking_ms": null
+    },
+    {
+      "confidence": 0.55,
+      "start_secs": 0.08,
+      "min_volume": 0.6,
+      "synthetic_ru_first_speaking_ms": 576,
+      "silence_first_speaking_ms": null,
+      "quiet_noise_first_speaking_ms": null
+    },
+    {
+      "confidence": 0.5,
+      "start_secs": 0.08,
+      "min_volume": 0.45,
+      "synthetic_ru_first_speaking_ms": 544,
+      "silence_first_speaking_ms": null,
+      "quiet_noise_first_speaking_ms": null
+    }
+  ],
+  "limitation": "One synthetic speaker and synthetic noise controls. Not real-room false positive rate."
+}

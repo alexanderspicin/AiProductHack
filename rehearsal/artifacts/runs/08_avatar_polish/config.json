@@ -1,0 +1,13 @@
+{
+  "mode": "TASK2_AI",
+  "date": "2026-09-06",
+  "requirements": ["Fix black comparison playback in actual in-app browser", "Explain algorithm and upstream sources briefly", "Provide runnable staged workflow and honest photo/video input contract", "Slow and smooth idle head motion without slowing lip sync", "Add subtle body motion while retaining CPU playback", "Explain TTS dependency and permit local audio comparison without paid calls"],
+  "baseline": "07_avatar_graph, 100 poses x 64 mouth states, native MP4, same 25fps pose clock for idle and speech",
+  "hypotheses": ["Media container/HTTP/browser compatibility causes black native playback, not empty rendered frames", "Independent smooth pose clock reduces visible head jitter", "Subtle torso deformation can add breathing but cannot replace captured arm gestures"],
+  "primary": "Actual browser displays and plays comparison; measured idle pose speed/acceleration reduced; speech clock and stop preserved",
+  "guardrails": {"fps_min":25,"no_new_image_model_runtime":true,"external_paid_calls":0},
+  "initial_timebox_minutes":60,
+  "deadline":"not supplied",
+  "stop_rule":"Verify playback, motion, cancellation and reproducible commands; record untested new-identity preparation explicitly",
+  "seed":20260906
+}

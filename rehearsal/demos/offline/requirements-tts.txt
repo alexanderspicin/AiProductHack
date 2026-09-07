@@ -1,0 +1,3 @@
+# Versions used on the current Mac. Use a platform-compatible Torch wheel elsewhere.
+piper-tts==1.7.0
+torch==2.13.0

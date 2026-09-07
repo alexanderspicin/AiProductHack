@@ -1,0 +1,11 @@
+{
+  "mode": "TASK2_PRODUCT",
+  "deadline": null,
+  "timebox_minutes": 15,
+  "request": "Explain whether stages are needed and submit methodology alternatives for approval",
+  "scope": "Proposal only; no application, scenario or settings changes",
+  "confirmed_direction": ["public situation brief before dialogue", "situated character rather than coach"],
+  "decision_pending": "How stages govern the dialogue and learning workflow",
+  "source_checks": ["original case requires ordered stages and dialogue state", "current text and voice stage progression", "current final assessment evidence rules"],
+  "api_calls_planned": 0
+}

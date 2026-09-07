@@ -1,0 +1,62 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Предрасчёт аватара · Лаборатория</title><link rel="icon" href="data:,">
+<style>
+:root{font:16px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;color:#23322f;background:#f4f5f0;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}body{margin:0}main{max-width:1080px;padding:36px 28px;margin:auto}header{display:flex;justify-content:space-between;align-items:start;gap:24px;margin-bottom:28px}h1{font-size:32px;line-height:1.15;letter-spacing:-1px;margin:8px 0;text-wrap:balance}p{margin:8px 0;color:#5c6963;text-wrap:pretty}.eyebrow{font-size:12px;font-weight:700;letter-spacing:1.1px;color:#396b5d}.badge{white-space:nowrap;font-size:13px;padding:8px 13px;border-radius:30px;background:#e2ece5}.grid{display:grid;grid-template-columns:360px 1fr;gap:30px}figure{margin:0;position:relative}canvas{width:100%;height:auto;display:block;border-radius:16px;outline:1px solid #0000001a;background:#deded5}.identity{position:absolute;bottom:12px;left:12px;background:#172b25ed;color:white;border-radius:8px;padding:8px 12px;font-size:12px}.panel{padding:26px;background:white;border-radius:18px;box-shadow:0 0 0 1px #00000008,0 4px 20px #00000005}label{display:block;font-weight:600;margin-bottom:10px}textarea{resize:vertical;width:100%;min-height:150px;padding:15px;font:inherit;color:inherit;border:1px solid #b7c5bd;border-radius:10px;background:#fcfdfa}textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid #3f866c;outline-offset:3px}.buttons{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap}button{border:0;border-radius:10px;padding:12px 20px;min-height:44px;font:inherit;cursor:pointer;background:#1d5c46;color:white;transition:scale 120ms,background-color 120ms}button:active{scale:.96}button.secondary{background:#eceee8;color:#33483e}button:disabled{opacity:.5;cursor:wait}.status{min-height:54px;font-size:14px;font-variant-numeric:tabular-nums;color:#39624e}.note{font-size:13px;border-top:1px solid #e2e8e0;padding-top:18px;margin-top:16px}details{margin-top:20px}summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:600}a{color:#296c52}code{font-size:13px}#stats{font-size:13px;white-space:pre-wrap;font-variant-numeric:tabular-nums}footer{font-size:13px;margin-top:22px;color:#6a756e}@media(max-width:760px){main{padding:22px 16px}header{display:block}.badge{display:inline-block;margin-top:8px}.grid{grid-template-columns:1fr}figure{max-width:320px;margin:auto}.panel{padding:20px}h1{font-size:28px}}@media(prefers-reduced-motion:reduce){button{transition:none}}
+</style>
+<main><header><div><div class="eyebrow">ЛАБОРАТОРИЯ / 07</div><h1>Один предрасчёт.<br>Новые фразы локально.</h1><p>Лицо собрано из кадров, рассчитанных заранее.</p></div><span class="badge">Без платных API</span></header>
+<div class="grid"><figure><canvas id="avatar" width="360" height="540" aria-label="Исследовательский AI-аватар"></canvas><div class="identity">AI-аватар · DH Live demo<br>Исследовательский материал</div></figure>
+<section class="panel"><label for="text">Что произнести?</label><textarea id="text" maxlength="600">Здравствуйте! Давайте потренируем разговор с клиентом. Как вы ответите, если он недоволен сроком доставки?</textarea>
+<div class="buttons"><button id="speak" disabled>Произнести</button><button id="stop" class="secondary">Прервать</button></div>
+<div id="status" class="status" role="status" aria-live="polite">Загружаю библиотеку лица…</div>
+<div class="behaviour"><label for="behaviour">Поведение</label><select id="behaviour"><option value="calm">Спокойное, с плавной головой</option><option value="legacy">Исходное, для сравнения</option></select><label class="check"><input type="checkbox" id="body" checked> Дыхание и небольшое движение корпуса</label></div>
+<p class="note">Вводите любую новую фразу. Голос Milena нужен только для бесплатной проверки. Его качество не отражает качество будущего TTS.</p>
+<p><a href="/examples" target="_blank">Примеры и сравнение с GPU</a></p>
+<details><summary>Проверить другой голос из WAV</summary><p>Загрузите готовый WAV от любого TTS. Файл обрабатывается только на этом компьютере, без отправки во внешние API.</p><label for="audio-file">PCM16 WAV: моно или стерео, до 45 с и 10 МБ</label><input type="file" id="audio-file" accept="audio/wav,.wav"><button id="play-file" class="secondary">Произнести из файла</button></details>
+<details><summary>Как устроена проверка</summary><p id="library-info">Загружаю параметры библиотеки.</p><p>Голова и корпус имеют отдельное время движения. Замедление поведения не замедляет речь. Движение корпуса сейчас небольшое процедурное, новых жестов руками нет.</p><p>Прерывание сразу выключает звук и переключает рот в нейтральное состояние. Распознавание микрофона здесь не включено; в основном проекте этот сигнал должен приходить от серверного VAD.</p><div id="stats"></div><output id="performance"></output></details>
+</section></div><footer>Эксперимент с конечной библиотекой движений. Повторы, ограниченная мимика и ошибки липсинка возможны. Это не доказательство неотличимости от человека.</footer></main>
+<style>.behaviour{margin:12px 0}select{max-width:100%;min-height:44px;padding:9px;border:1px solid #b7c5bd;border-radius:8px;font:inherit;background:#fcfdfa;color:inherit}.check{display:flex;gap:9px;align-items:center;font-size:14px;font-weight:400;min-height:44px;margin:6px 0}.check input{width:18px;height:18px}input[type=file]{display:block;max-width:100%;margin:14px 0}#performance{font-size:12px;font-variant-numeric:tabular-nums;color:#5c6963}</style>
+<script type="module">
+import {MotionClock,MotionRenderer} from '/motion.js';
+const $=id=>document.getElementById(id),ctx=$('avatar').getContext('2d',{willReadFrequently:true});
+let manifest,assets=[],audioContext,source=null,states=[],audioStart=0,generation=0,fetchController=null,bodyEpoch=performance.now(),ready=false,motion,renderer,position=0;
+window.labState={active:false,generation:0,mouth:0,frames:0,drawMs:[],cancelMs:0};
+function phase(n){if(manifest.poses<2)return 0;const k=n%(2*manifest.poses-2);return k<manifest.poses?k:2*manifest.poses-2-k;}
+function draw(p,k){const t=performance.now();if(renderer){renderer.render(p,k,(t-bodyEpoch)/1000,{body:$('body').checked,legacy:$('behaviour').value==='legacy'});}else{const a=assets[Math.floor(p)];if(!a)return;ctx.drawImage(a.base,0,0);}window.labState.mouth=k;window.labState.frames++;const ms=performance.now()-t;window.labState.drawMs.push(ms);if(window.labState.drawMs.length>1000)window.labState.drawMs.shift();}
+function interrupt(message='Прервано. Можно написать новую фразу.'){
+ const start=performance.now();generation++;fetchController?.abort();fetchController=null;
+ if(source){source.onended=null;try{source.stop();}catch{}source.disconnect();source=null;}
+ states=[];window.labState.active=false;window.labState.generation=generation;
+ if(manifest)draw(position,0);
+ window.labState.cancelMs=performance.now()-start;$('status').textContent=message;$('speak').disabled=!ready;$('play-file').disabled=!ready;
+}
+$('stop').onclick=()=>interrupt();
+$('speak').onclick=()=>speak(false);$('play-file').onclick=()=>speak(true);
+async function speak(fromFile){
+ if(!ready){$('status').textContent='Дождитесь загрузки лица.';return;}
+ interrupt('Готовлю локальный звук и движения…');const token=generation;
+ try{
+  const text=$('text').value.trim(),file=$('audio-file').files[0];if(fromFile&&!file)throw Error('Выберите WAV');if(!fromFile&&!text)throw Error('Введите текст');if(fromFile&&file.size>10*1024*1024)throw Error('Файл больше 10 МБ');
+  audioContext ||= new AudioContext();await audioContext.resume();
+  $('speak').disabled=true;$('play-file').disabled=true;fetchController=new AbortController();
+  const response=await fetch(fromFile?'/animate-audio':'/speak',{method:'POST',headers:{'Content-Type':fromFile?'audio/wav':'application/json'},body:fromFile?file:JSON.stringify({text}),signal:fetchController.signal});
+  const data=await response.json();if(!response.ok)throw Error(data.error);if(token!==generation)return;
+  const wav=await fetch(data.audio,{signal:fetchController.signal});const audio=await audioContext.decodeAudioData(await wav.arrayBuffer());
+  if(token!==generation)return;
+  states=data.states;source=audioContext.createBufferSource();source.buffer=audio;source.connect(audioContext.destination);
+  audioStart=audioContext.currentTime+.04;source.start(audioStart);window.labState.active=true;
+  source.onended=()=>{if(token===generation)interrupt('Фраза завершена. Попробуйте другую.');};
+  $('speak').disabled=false;$('play-file').disabled=false;$('status').textContent=`Говорит · подготовка ${data.prepare_s.toFixed(2)} с · звук ${audio.duration.toFixed(1)} с`;
+  $('stats').textContent=`Подготовка движений: ${(data.timing.seconds*1000).toFixed(0)} мс\nЗа пределами изученных движений: ${(data.metrics.outside_coverage_fraction*100).toFixed(1)}%\nПлатные вызовы: 0`;
+ }catch(error){if(token!==generation||error.name==='AbortError')return;interrupt(error.message);}
+}
+let last=-1;
+let perfStart=performance.now(),perfFrames=0;
+function tick(){if(ready){const now=performance.now(),frame=Math.floor((now-bodyEpoch)/33.333);const smooth=motion.update(now,!!source),legacy=$('behaviour').value==='legacy';position=legacy?phase(Math.floor((now-bodyEpoch)/40)):smooth;if(frame!==last){last=frame;const speechFrame=source?Math.floor((audioContext.currentTime-audioStart)*25):-1;const state=speechFrame>=0&&speechFrame<states.length?states[speechFrame]:0;draw(position,state);perfFrames++;if(now-perfStart>1500){$('performance').textContent=`Отрисовка ${(perfFrames*1000/(now-perfStart)).toFixed(1)} кадр/с · темп головы ${legacy?'1.00':motion.speed.toFixed(2)}× · рот по аудио 25 кадр/с`;perfFrames=0;perfStart=now;}}}requestAnimationFrame(tick);}
+async function loadImage(url){const image=new Image();image.src=url;await image.decode();return image;}
+(async()=>{try{$('play-file').disabled=true;manifest=await(await fetch('/manifest.json')).json();[$('avatar').width,$('avatar').height]=manifest.size;$('library-info').textContent=`${manifest.states} форм рта для каждого из ${manifest.poses} положений головы. Во время разговора выбираем готовый кадр. Новые изображения не генерируются.`;let loaded=0,next=0;
+ await Promise.all(Array.from({length:4},async()=>{while(next<manifest.poses){const p=next++,id=String(p).padStart(3,'0');const [base,sheet]=await Promise.all([loadImage(`/assets/base/${id}.jpg`),loadImage(`/assets/atlas/${id}.png`)]);assets[p]={base,sheet};loaded++;$('status').textContent=`Загружаю библиотеку: ${loaded} / ${manifest.poses}`;if(p===0)draw(0,0);}}));
+ motion=new MotionClock(manifest.poses);renderer=new MotionRenderer($('avatar'),manifest,assets);ready=true;$('speak').disabled=false;$('play-file').disabled=false;$('status').textContent='Готово. Введите фразу или используйте пример.';bodyEpoch=performance.now();tick();
+ }catch(error){$('status').textContent='Не удалось загрузить библиотеку: '+error.message;}})();
+window.addEventListener('pagehide',()=>interrupt('Остановлено'));
+document.addEventListener('visibilitychange',()=>{if(document.hidden)interrupt('Воспроизведение остановлено при скрытии вкладки.');});
+</script></html>
