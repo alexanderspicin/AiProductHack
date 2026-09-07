@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-07",
+  "mode": "TASK2_AI",
+  "question": "Can the training UI run the actual teammate pipeline without changing the API edition?",
+  "baseline": "Existing API training UI plus original AiProductHack backend modules",
+  "change": "Scenario and transcript adapter around original factories, official browser Pipecat transport",
+  "primary_acceptance": "Real synthesized audio, local ASR, interruption before transcription, saved report",
+  "guardrails": ["original directories unchanged", "no video API", "one live session at a time", "no microphone captured by automated tests"],
+  "source_backend_revision": "92edfbd",
+  "source_repository_revision": "bf4287f",
+  "runtime": {"python": "3.12", "pipecat": "1.8.1", "whisper": "small", "device": "cpu", "compute_type": "int8", "voice": "Svetlana", "llm": "gpt-5.6-luna"},
+  "data": "Same synthetic Russian PCM16 mono 16kHz sample; 8s model check and first 4s live input",
+  "split": "not applicable: integration test, no model training",
+  "seed": null,
+  "live_attempt_limit_seconds": 55,
+  "stop_rule": "No automatic repeat of a failed probe; diagnose before a new explicit run"
+}

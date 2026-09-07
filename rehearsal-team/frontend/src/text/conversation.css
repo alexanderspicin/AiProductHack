@@ -1,0 +1,171 @@
+/* The training is a call workspace. Only its transcript scrolls, not the document. */
+.team-stage { position: relative; min-height: 0; overflow: hidden; background: #e7efeb; }
+.team-stage > .avatar-stage { width: 100%; height: 100%; min-height: 0; }
+.team-stage > .avatar-stage canvas { width: 100%; height: 100%; }
+.team-brief { position: absolute; inset: 0; overflow-y: auto; display: grid; align-items: center; padding: 28px max(24px, 5%); background: #f4f8f5; color: #243b30; }
+.team-voice .call-controls .notice { margin-top: 10px; max-height: 110px; overflow: auto; }
+.team-voice .call-toolbar .button { min-height: 44px; }
+@media (max-width: 700px) { .team-brief { padding: 18px; } .team-voice .call-toolbar { gap: 4px; } .team-voice .call-toolbar .button { padding: 8px; } }
+.workspace.in-training { height: 100dvh; min-height: 0; overflow: hidden; }
+.workspace.in-training > .sidebar, .workspace.in-training .app-topbar { display: none; }
+.workspace.in-training .main-column { height: 100%; min-height: 0; width: 100%; }
+.workspace.in-training .conversation-page { height: 100%; min-height: 0; padding: 12px; display: flex; flex-direction: column; }
+.workspace.in-training .conversation-layout { position: relative; flex: 1; height: 100%; min-height: 0; }
+.conversation-layout.call-layout { grid-template-columns: minmax(0, 1fr) clamp(300px, 28vw, 380px); grid-template-rows: auto auto minmax(0, 1fr); }
+.conversation-layout.text-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); }
+.conversation-layout.text-layout > .chat-panel { grid-row: 3; }
+.conversation-layout .conversation-header { padding: 12px 18px; min-width: 0; }
+.conversation-layout .conversation-header > .icon-button { width: 40px; height: 40px; }
+.conversation-title { min-width: 0; }
+.conversation-title h1 { overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.conversation-layout .conversation-header-actions { flex-shrink: 0; gap: 6px; }
+.conversation-layout .training-plan.is-drawer { display: flex; position: absolute; z-index: var(--z-sticky); top: 76px; left: 16px; width: min(340px, calc(100% - 32px)); max-height: calc(100% - 92px); border: 1px solid var(--line); border-radius: 10px; padding: 18px; background: #fff; overflow: auto; }
+.training-plan.is-drawer h2 { margin: 0; font-size: 14px; }
+.training-plan.is-drawer > p, .training-plan.is-drawer li { font-size: 13px; }
+.training-plan.is-drawer .plan-footer { padding-top: 16px; }
+.call-layout > .selected-voice, .call-layout > .call-loading { grid-column: 1; grid-row: 3; min-width: 0; min-height: 0; }
+.call-layout > .selected-voice { display: grid; grid-template-rows: minmax(0, 1fr) auto; border: 0; background: #172321; }
+.call-loading { display: grid; place-items: center; background: #172321; color: #e6eeea; }
+.call-layout > .chat-panel { grid-column: 2; grid-row: 3; border-left: 1px solid var(--line); overflow: hidden; }
+.conversation-layout .chat-panel { min-height: 0; }
+.call-layout .chat-person { flex-shrink: 0; padding: 12px 16px; }
+.call-layout .chat-person strong { font-size: 14px; }
+.call-layout .chat-person div > span { font-size: 12px; line-height: 1.4; }
+.conversation-layout .messages { min-height: 0; }
+.call-layout .messages { padding: 14px 18px; }
+.call-layout .message { max-width: 100%; font-size: 14px; margin-bottom: 20px; }
+.call-layout .message.user { max-width: 94%; padding: 10px 12px; }
+.call-layout .message-author { font-size: 11px; }
+.conversation-layout .composer-area { flex-shrink: 0; min-height: 0; max-height: 65%; overflow-y: auto; }
+.call-layout .composer-area { padding: 12px; }
+.call-layout .composer { padding: 10px; }
+.call-layout .composer textarea { min-height: 48px; font-size: 14px; }
+.call-layout .composer-help { align-items: start; line-height: 1.5; padding-top: 5px; }
+.call-layout .composer-help > span { max-width: 27ch; padding-top: 8px; }
+.call-layout .composer-help .text-button { flex-shrink: 0; }
+.call-layout .human-video { height: auto; min-height: 0; position: relative; overflow: hidden; }
+.call-layout .human-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.call-layout .human-video-cover { gap: 16px; padding: 24px; }
+.call-layout .human-video-cover > span:not(.call-person-monogram) { max-width: 34ch; font-size: 15px; line-height: 1.6; color: #d0ddd7; }
+.call-layout .call-person-monogram { display: grid; place-items: center; width: 112px; height: 112px; border-radius: 50%; color: #dbe8e0; background: #344b40; font-size: 42px; font-weight: 500; }
+.call-nameplate { position: absolute; bottom: 16px; left: 18px; color: #fff; background: #172321; padding: 7px 11px; border-radius: 6px; font-size: 13px; }
+.call-layout .ai-disclosure { top: 16px; bottom: auto; left: 18px; }
+.call-subtitle { position: absolute; bottom: 54px; left: 8%; right: 8%; padding: 10px 16px; margin: 0; background: rgb(10 17 14 / 90%); color: #fff; border-radius: 7px; text-align: center; font-size: 16px; line-height: 1.5; max-height: 28%; overflow-y: auto; }
+.call-controls { position: relative; background: #fff; padding: 12px 16px 14px; border-top: 1px solid var(--line); }
+.call-controls > .voice-state { justify-content: center; color: #425b50; font-size: 12px; margin-bottom: 10px; }
+.call-toolbar { position: relative; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; }
+.call-layout .call-toolbar .button { min-height: 44px; font-size: 12px; padding: 10px 14px; }
+.call-toolbar .call-start { padding-left: 18px; padding-right: 20px; }
+.call-toolbar .call-end { color: #fff; background: #a73536; }
+.call-toolbar .call-end:hover:not(:disabled) { background: #892d2e; }
+.call-toolbar .mic-toggle.is-muted { background: #f5e9e7; border-color: #e6c9c4; color: #843d36; }
+.call-options > summary { list-style: none; cursor: pointer; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px; border-radius: 7px; font-size: 12px; color: #3a4d47; }
+.call-options > summary::-webkit-details-marker { display: none; }
+.call-options > summary:hover, .call-options[open] > summary { background: #eaf0ed; }
+.call-options-panel { position: absolute; z-index: var(--z-sticky); bottom: calc(100% + 14px); right: 0; width: min(340px, 100%); max-height: min(360px, 60dvh); overflow: auto; padding: 18px; border: 1px solid #b6c8be; border-radius: 10px; background: #fff; color: var(--ink); font-size: 13px; }
+.call-options-panel p, .call-options-panel label, .call-options-panel .voice-diagnostics p { font-size: 12px; color: #52655d; }
+.call-options-panel .button { margin-top: 8px; }
+.call-options-panel summary { min-height: 44px; align-content: center; }
+.call-notices { position: absolute; z-index: 1; bottom: calc(100% + 10px); left: 12px; right: 12px; max-height: 140px; overflow-y: auto; }
+.call-notices .notice, .call-notices > p { margin: 0; padding: 12px; font-size: 13px; background: #fff8ed; color: #684d23; border-radius: 8px; }
+.call-notices .notice .icon-button { flex-shrink: 0; }
+@media (max-width: 1050px) {
+  .call-toolbar .mic-toggle { width: 44px; padding: 10px; }
+  .call-toolbar .mic-toggle span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .call-toolbar .call-end { padding: 10px; }
+  .call-options > summary span { display: none; }
+}
+@media (max-width: 700px) and (min-height: 501px), (max-width: 600px) {
+  .conversation-layout.call-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr) minmax(220px, 40%); }
+  .call-layout > .chat-panel { grid-column: 1; grid-row: 4; border-left: 0; border-top: 1px solid var(--line); }
+  .call-layout .chat-person { display: none; }
+  .call-layout .human-video-cover { gap: 8px; padding: 14px 24px; }
+  .call-layout .call-person-monogram { width: 64px; height: 64px; font-size: 28px; }
+  .call-layout .human-video-cover strong { font-size: 20px; }
+  .call-layout .human-video-cover > span:not(.call-person-monogram) { font-size: 13px; }
+  .call-layout .composer-area { max-height: 75%; padding: 8px 12px; }
+  .call-layout .composer-help { display: none; }
+  .call-layout .composer textarea { font-size: 16px; min-height: 26px; height: 28px; }
+  .call-layout .composer { display: flex; align-items: end; gap: 8px; }
+  .call-layout .composer-controls > span { display: none; }
+  .call-layout .messages { padding: 12px 16px; }
+  .call-layout .conversation-start { margin-bottom: 14px; }
+}
+@media (max-width: 720px) {
+  .workspace.in-training .conversation-page { padding: 0; }
+  .workspace.in-training .conversation-layout { border: 0; border-radius: 0; }
+  .conversation-layout .conversation-header { padding: 8px; gap: 6px; }
+  .conversation-layout .conversation-header h1 { font-size: 14px; }
+  .conversation-layout .conversation-header p { font-size: 11px; }
+  .call-controls { padding: 9px 8px 10px; }
+  .call-controls > .voice-state { font-size: 11px; margin-bottom: 6px; }
+  .call-toolbar { gap: 6px; }
+  .call-layout .call-toolbar .mic-toggle, .call-layout .call-toolbar .call-end { width: 44px; padding: 10px; flex-shrink: 0; }
+  .call-toolbar .call-end span { display: none; }
+  .call-subtitle { font-size: 14px; }
+}
+@media (max-height: 500px) and (min-width: 601px) {
+  .conversation-layout.call-layout { grid-template-columns: minmax(0, 1fr) minmax(260px, 38%); }
+  .call-layout .human-video-cover { gap: 8px; }
+  .call-layout .call-person-monogram { display: none; }
+  .call-layout .chat-person { padding: 8px 12px; }
+  .call-layout .chat-person div > span, .call-layout .composer-help { display: none; }
+  .call-layout .composer textarea { height: 28px; min-height: 28px; }
+  .call-layout .composer-area { padding: 8px; }
+  .call-layout .composer { padding: 8px; }
+  .call-toolbar .button { padding: 8px; }
+  .call-toolbar .mic-toggle { width: 44px; }
+  .call-toolbar .call-end span { display: none; }
+}
+/* Keep the composer usable when a phone's keyboard reduces the viewport. */
+@media (max-width: 600px) and (max-height: 500px) {
+  .conversation-layout.call-layout { grid-template-rows: auto auto minmax(0, 1fr) minmax(128px, 42%); }
+  .call-layout .human-video-cover { padding: 6px; }
+  .call-layout .human-video-cover > span, .call-nameplate { display: none; }
+  .call-layout .ai-disclosure { top: 6px; left: 8px; font-size: 9px; padding: 4px; }
+  .call-controls > .voice-state { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .call-options-panel { max-height: min(180px, 32dvh); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .call-layout .button, .call-layout .icon-button { transition: none; }
+}
+
+/* A compact, visible sequence; full objectives remain in the task drawer. */
+.conversation-plan { grid-column: 1 / -1; grid-row: 2; display: flex; align-items: center; gap: 16px; padding: 4px 18px; min-width: 0; border-bottom: 1px solid var(--line); background: #f8faf9; }
+.plan-caption { flex-shrink: 0; color: var(--muted); font-size: 12px; }
+.conversation-plan ol { display: flex; align-items: stretch; gap: 8px; list-style: none; padding: 0; margin: 0; min-width: 0; overflow-x: auto; }
+.conversation-plan li { display: flex; flex: 0 0 auto; max-width: 220px; }
+.conversation-plan button { display: flex; align-items: center; gap: 7px; padding: 6px 8px; min-height: 44px; text-align: left; color: #465b50; font-size: 12px; line-height: 1.35; background: transparent; border: 0; border-radius: 5px; cursor: pointer; }
+.conversation-plan button:hover { background: #eaf0ec; }
+.conversation-plan button:focus-visible { outline: 2px solid #255e49; outline-offset: -2px; }
+.plan-marker { display: grid; place-items: center; flex: 0 0 22px; height: 22px; border: 1px solid #c7d4cc; border-radius: 50%; font-size: 11px; }
+.conversation-plan .is-observed .plan-marker { background: #255e49; border-color: #255e49; color: #fff; }
+.training-plan.is-drawer li small { display: block; margin-top: 4px; font-weight: 400; color: #53655b; }
+.training-brief { max-width: 580px; width: 100%; text-align: left; font-size: 15px; line-height: 1.65; overflow-wrap: anywhere; }
+.training-brief h2 { font-size: 25px; line-height: 1.25; margin: 0 0 18px; }
+.training-brief > p { margin: 12px 0; }
+.training-brief .brief-eyebrow { font-size: 12px; margin: 0 0 14px; }
+.training-brief dl { display: grid; gap: 9px; margin: 20px 0; }
+.training-brief dl > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 12px; }
+.training-brief dt { opacity: .8; font-size: 13px; }
+.training-brief dd { margin: 0; }
+.training-brief .brief-footnote { font-size: 12px; opacity: .8; }
+.call-layout .human-video-cover.has-brief { justify-content: start; overflow-y: auto; padding: 64px clamp(24px, 5vw, 80px); }
+.human-video-cover.has-brief .training-brief { margin: auto 0; }
+.human-video:has(.has-brief) .call-nameplate { display: none; }
+.conversation-layout .end-confirm { padding-bottom: 8px; }
+.conversation-layout .composer-area:has(.end-confirm) { max-height: 85%; }
+.messages > .training-brief { max-width: 680px; padding: 20px; margin-bottom: 24px; border: 1px solid var(--line); border-radius: 8px; background: #f8faf9; }
+.training-plan .training-brief { font-size: 13px; margin: 20px 0 8px; }
+.training-plan .training-brief h2 { font-size: 16px; }
+.training-plan .training-brief dl > div { grid-template-columns: 80px minmax(0, 1fr); gap: 8px; }
+@media (max-width: 720px) {
+  .conversation-plan { gap: 0; padding: 0 8px; }
+  .plan-caption { display: none; }
+  .conversation-plan li { max-width: 185px; }
+  .conversation-plan button { font-size: 11px; padding: 4px; }
+  .call-layout .human-video-cover.has-brief { padding: 46px 20px; }
+  .training-brief { font-size: 13px; line-height: 1.55; }
+  .training-brief h2 { font-size: 20px; margin-bottom: 12px; }
+}
+.team-return-brief { position: absolute; top: 16px; left: 16px; z-index: 2; }

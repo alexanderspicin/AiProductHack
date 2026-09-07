@@ -1,0 +1,31 @@
+{
+  "backend_tests": {"passed": 96, "failed": 0, "warnings": 16, "duration_s": 4.06},
+  "frontend_tests": {"passed": 26, "failed": 0},
+  "build": "passed",
+  "clean_environment_install": "dry-run only; tests use existing environment",
+  "local_models": {"whisper_load_ms": 952, "whisper_8s_audio_ms": 2244, "smart_turn_ms": 55, "smart_turn_state": "INCOMPLETE"},
+  "live_probe": {
+    "successful_attempt": 3,
+    "previous_failures": ["LLM reasoning/function-tool incompatibility, fixed", "Inworld connection refused, subsequent handshake succeeded"],
+    "first_audio_ms": 2373,
+    "manual_interrupt_event_ms": 4,
+    "audio_input_to_vad_ms": 680,
+    "vad_to_first_transcription_ms": 1548,
+    "vad_before_transcription": true,
+    "text_to_first_audio_ms": 6408,
+    "received_audio_s": 8.84,
+    "viseme_events": 438,
+    "distinct_mouth_shapes": 13,
+    "tts_text_events": 19,
+    "saved_user_turns": 3,
+    "report_status": "ready",
+    "stop_http_status": 200,
+    "end_http_status": 200,
+    "microphone_captured": false,
+    "video_api_calls": 0
+  },
+  "usage_at_check": {"measured_openai_requests": 5, "input_tokens": 7225, "output_tokens": 977, "total_tokens": 8202, "estimated_openai_usd": 0.00206402, "inworld_cost": null, "total_actual_cost": null},
+  "human_lipsync_acceptance": "not performed",
+  "physical_speaker_interruption_measurement": "not performed",
+  "decision": "keep integration; presentation latency targets remain unproven"
+}

@@ -1,0 +1,22 @@
+{
+  "external_api_calls": 0,
+  "sources": {
+    "stt": "backend/app/pipeline/stt.py",
+    "turn_detection": "backend/app/pipeline/turn_detection.py",
+    "visemes": "backend/app/avatar/viseme_processor.py"
+  },
+  "whisper_load_ms": 952,
+  "vad": "SileroVADAnalyzer",
+  "turn": "LocalSmartTurnAnalyzerV3",
+  "stt": "WhisperSTTService",
+  "smart_turn_state": "EndOfTurnState.INCOMPLETE",
+  "smart_turn_ms": 55,
+  "vad_states": [
+    "VADState.QUIET",
+    "VADState.SPEAKING",
+    "VADState.STARTING",
+    "VADState.STOPPING"
+  ],
+  "transcript": "Добрый день! Понимаю ваше сомнение. Давайте спокойно разберёмся, что именно вас беспокоит. Мы можем начать с небольшой группы.",
+  "stt_ms": 2244
+}
